@@ -1,18 +1,11 @@
 ---
-import '../global.css';
+import Base from '../layouts/base.astro';
 const { frontmatter } = Astro.props;
 ---
-<!doctype html>
-<html lang="nl">
-<head>
-	<title>{ frontmatter.title }</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+<Base
+	is_home={ true }>
 	<slot />
-</body>
-</html>
+</Base>
 
 <style>
 	:global(body) {
