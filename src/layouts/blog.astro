@@ -1,5 +1,5 @@
 ---
-// import '../global.css';
+import Base from '../layouts/base.astro';
 const { frontmatter } = Astro.props;
 
 function getDate(date:Date) {
@@ -13,10 +13,13 @@ function getDate(date:Date) {
 	return new Intl.DateTimeFormat('en-GB', options).format(d)
 }
 ---
-<h1>{ frontmatter.title }</h1>
-<p>
-	{ getDate(frontmatter.date) }<br>
-	By { frontmatter.author }
-</p>
-<slot/>
-<a href="/">&larr; Go back</a>
+<Base>
+	<p>Blog</p>
+	<h1>{ frontmatter.title }</h1>
+	<hr>
+	<p>
+		{ getDate(frontmatter.date) }<br>
+		By { frontmatter.author }
+	</p>
+	<slot/>
+</Base>

@@ -1,6 +1,5 @@
 ---
 import path from "node:path";
-import Base from '../layouts/base.astro';
 
 import '../global.css'
 
@@ -18,9 +17,7 @@ export async function getStaticPaths() {
 
 const { Content } = Astro.props.post
 ---
-<Base>
-	<Content />
-</Base>
+<Content />
 
 <style>
 	:global(body) {
