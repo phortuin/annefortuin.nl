@@ -1,8 +1,8 @@
 ---
 layout: ../layouts/blog.astro
 title: It works
-author: Me, goddammit
-date: 2023-05-15
-description: Awesome stuff
+author: Anne
+date: 2023-07-17
+description: It works
 ---
-It works, you cock suckers
+It works, but not like you know it
