@@ -30,10 +30,15 @@ $ npm run deploy
 - [ ] Set SITE_URL to something during production build?
 - [ ] Add robots.txt
 - [ ] Move away from Astro 
+- [ ] Move away from Cloudflare Pages
 
 ### Move away from Astro
 
 Astro is cool and all and it's easy to set up stuff fast, but it's overkill for a super simple blog like this. I’d rather have a custom build with Nunjucks and Marked which will work forever, instead of relying on a dependency that might go away, break, or need updates every so often.
+
+### Move away from CF Pages
+
+On hard refreshes, there’s an error `Pages had an internal error, if this persists please contact support!` that randomly occurs. It seems to have to do with DNS config (since it doesn’t occur on the [pages.dev](https://annefortuin-nl.pages.dev) URL). I’d rather dump everything on S3 again and have CF do the CDN/DNS management than have issues like these.
 
 ## License
 
