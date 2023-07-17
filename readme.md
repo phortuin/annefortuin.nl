@@ -28,6 +28,7 @@ $ npm run deploy
 ## Todo
 
 - [ ] Set SITE_URL to something during production build?
+- [ ] Have pages without trailing slash? Seems to be a standard nowadays. How wuld that even work with a static deploy and no server side magic :thinking_face:
 - [ ] Add robots.txt
 - [ ] Move away from Astro 
 - [ ] Move away from Cloudflare Pages
