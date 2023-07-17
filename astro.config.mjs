@@ -6,7 +6,9 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL,
-  trailingSlash: 'always',
+  trailingSlash: "always",
+  inlineStylesheets: "auto",
+  compressHTML: true,
   experimental: {
     assets: true
   },
