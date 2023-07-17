@@ -1,0 +1,29 @@
+---
+import path from "node:path";
+import Base from '../layouts/base.astro';
+
+import '../global.css'
+
+export async function getStaticPaths() {
+	const posts = await Astro.glob('../posts/**/*.md')
+	return posts.map(post => ({
+		params: {
+			slug: path.basename(post.file).split(".")[0],
+		},
+		props: {
+			post
+		},
+	}))
+}
+
+const { Content } = Astro.props.post
+---
+<Base>
+	<Content />
+</Base>
+
+<style>
+	:global(body) {
+		background: #dff;
+	}
+</style>

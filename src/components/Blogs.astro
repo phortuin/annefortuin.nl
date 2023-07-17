@@ -1,0 +1,18 @@
+---
+import path from "node:path";
+const allPosts = await Astro.glob('../posts/**/*.md');
+
+const posts = [];
+for (const post of allPosts) {
+	posts.push({
+		slug: path.basename(post.file).split(".")[0],
+		...post.frontmatter
+	})
+}
+
+---
+<ul>
+{ posts.length && posts.map((post) => (
+	<li><a href={ `${post.slug}/` }>{ post.title }</a></li>
+))}
+</ul>

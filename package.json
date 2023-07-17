@@ -1,0 +1,17 @@
+{
+  "name": "annefortuin.nl",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/mdx": "^0.19.1",
+    "@types/node": "^20.2.1",
+    "astro": "^2.1.7",
+    "dotenv-safe": "^8.2.0"
+  }
+}
