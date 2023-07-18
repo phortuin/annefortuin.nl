@@ -1,22 +1,28 @@
 ---
-import path from "node:path";
+// Libs, types
+import slug from "@lib/slug";
+import { MarkdownInstance } from "astro";
+import { Frontmatter } from "@lib/types";
 
-import '../global.css'
+// CSS
+import "../global.css";
 
 export async function getStaticPaths() {
-	const posts = await Astro.glob('../posts/**/*.md')
-	return posts.map(post => ({
+	const posts = await Astro.glob<Frontmatter>("../posts/**/*.md");
+	return posts.map((post) => ({
 		params: {
-			slug: path.basename(post.file).split(".")[0],
+			slug: slug(post.file),
 		},
 		props: {
-			post
-		},
-	}))
+			post,
+		}
+	}));
 }
 
-const { Content } = Astro.props.post
+const { Content } = Astro.props.post;
+
 ---
+
 <Content />
 
 <style>

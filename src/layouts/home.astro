@@ -1,6 +1,6 @@
 ---
+// Components
 import Base from '../layouts/base.astro';
-const { frontmatter } = Astro.props;
 ---
 <Base
 	is_home={ true }>
@@ -9,6 +9,10 @@ const { frontmatter } = Astro.props;
 
 <style>
 	:global(body) {
-		background: #ffd;
+		background-color: #ffd;
+/*		border-color: #f08;*/
+	}
+	:global(a) {
+/*		color: #f08;*/
 	}
 </style>

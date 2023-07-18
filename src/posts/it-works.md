@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/blog.astro
+layout: "@layouts/blog.astro"
 title: It works
 author: Anne
 date: 2023-07-17

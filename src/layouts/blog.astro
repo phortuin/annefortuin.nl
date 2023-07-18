@@ -1,24 +1,24 @@
 ---
-import Base from '../layouts/base.astro';
-const { frontmatter } = Astro.props;
+// Libs, types
+import date from "@lib/date";
+import { Frontmatter } from "@lib/types";
 
-function getDate(date:Date) {
-	const d = new Date(date);
-	let options = {
-	  weekday: "long",
-	  year: "numeric",
-	  month: "long",
-	  day: "numeric",
-	};
-	return new Intl.DateTimeFormat('en-GB', options).format(d)
-}
+// Components
+import Base from '../layouts/base.astro';
+
+// Template parameters
+const {
+	frontmatter
+} = Astro.props as {
+	frontmatter: Frontmatter
+};
 ---
 <Base>
 	<p>Blog</p>
 	<h1>{ frontmatter.title }</h1>
 	<hr>
 	<p>
-		{ getDate(frontmatter.date) }<br>
+		{ date(frontmatter.date) }<br>
 		By { frontmatter.author }
 	</p>
 	<slot/>
