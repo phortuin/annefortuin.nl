@@ -29,6 +29,7 @@ $ npm run deploy
 
 - [ ] Set SITE_URL to something during production build?
 - [ ] Have pages without trailing slash? Seems to be a standard nowadays. How wuld that even work with a static deploy and no server side magic :thinking_face:
+- [ ] Use [Content Collections](https://docs.astro.build/en/guides/content-collections/) instead of glob?
 - [ ] Add robots.txt
 - [ ] Move away from Astro 
 - [ ] Move away from Cloudflare Pages
