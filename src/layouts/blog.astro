@@ -18,7 +18,7 @@ const {
 	<h1>{ frontmatter.title }</h1>
 	<hr>
 	<p>
-		{ date(frontmatter.date) }<br>
+		{ frontmatter.date && date(frontmatter.date) }<br>
 		By { frontmatter.author }
 	</p>
 	<slot/>
