@@ -1,0 +1,29 @@
+---
+---
+<header class="site-header">
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+	<nav>
+		<a href="/" rel="me">Anne Fortuin</a>
+	</nav>
+</header>
+
+<style>
+	p {
+		margin: 0 0 var(--sp-large);
+	}
+	nav a {
+		color: CanvasText;
+	}
+	.skip-link {
+		left: -9999rem;
+		position: absolute;
+		top: var(--sp-default);
+		z-index: 1;
+	}
+	.skip-link:focus {
+		color: ButtonText;
+		background: Highlight;
+		left: var(--sp-default);
+		padding: var(--sp-half);
+	}
+</style>
