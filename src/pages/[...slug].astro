@@ -2,12 +2,24 @@
 import { getCollection } from 'astro:content';
 import Base from "@layouts/Base.astro";
 
+/**
+ * To render the index page from the pages collection as the root of the site
+ * (`/`) we need a rest parameter (or "catch all") filename:
+ *
+ * > If your custom slugs contain the / character to produce URLs with multiple
+ *   path segments, you must use a rest parameter ([...slug]) in the .astro
+ *   filename for this dynamic routing page.
+ *
+ * @see https://github.com/withastro/astro/issues/7038
+ * @see https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default
+ */
 export async function getStaticPaths() {
     const pages = await getCollection('pages');
     return pages.map((page) => ({
         params: { slug: page.slug || undefined }, props: { page },
     }));
 }
+
 
 const { page } = Astro.props;
 const { Content } = await page.render();
