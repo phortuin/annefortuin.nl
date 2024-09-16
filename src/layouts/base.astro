@@ -1,32 +1,80 @@
 ---
-// CSS
+import Header from "@components/Header.astro";
+
 import "../global.css";
 
-// Template parameters
-const {
-	is_home
-} = Astro.props as {
-	is_home: boolean;
-}
+type Props = {
+	template?: string;
+};
+
+const { template } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
 <head>
-	<title>{ import.meta.env.DEV && 'dev ' }annefortuin.nl</title>
+	<title>{ `${import.meta.env.DEV ? 'dev ' : ''}annefortuin.nl` }</title>
 	<meta charset="utf-8">
+	<slot name="meta" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href={new URL(Astro.url, Astro.site)}>
 	<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Ctext%20x='0'%20y='14'%3E🥒%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap" rel="stylesheet">
 </head>
-<body>
-	<main>
+<body
+	class={ template }>
+	<Header />
+	<main id="main-content">
 		<slot />
 	</main>
-	{ !is_home && (
-		<footer>
-			<p>
-				&larr; <a href="/">Go back</a>
-			</p>
-		</footer>
-	)}
+	<footer>
+		<section>
+		<a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY</a> Anne Fortuin
+		<nav>
+			<ul>
+				<li>
+					<a href="/now/">Now</a>
+				</li>
+				<li>
+					<a href="/about/">About &raquo;</a>
+				</li>
+				<li>
+					<a href="/blog/">Blog</a>
+				</li>
+				<li>
+					<a href="/notes/">Notes</a>
+				</li>
+			</ul>
+		</nav>
+		</section>
+		<section>
+		<nav>
+			<ul>
+				<li>
+					<a rel="me" href="https://mastodon.social/@phortuin">Mastodon</a>
+				</li>
+				<li>
+					<a href="https://bsky.app/profile/annefortuin.nl">Bluesky</a>
+				</li>
+			</ul>
+		</nav>
+		</section>
+	</footer>
 </body>
 </html>
+
+<style>
+	body.about {
+		background: #dfd;
+	}
+	body.other {
+		background: #dfd;
+	}
+	body.writings {
+		background: #dff;
+	}
+	#main-content {
+		scroll-margin-top: var(--sp-default);
+	}
+</style>
