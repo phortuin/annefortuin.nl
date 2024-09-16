@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import { formatDate } from "@lib/date";
+
+const allNotes = await getCollection('notes');
+
+---
+<ul>
+{ allNotes && allNotes.map(async (note) => {
+	const { Content } = await note.render();
+	return <li>{ formatDate(note.data.pubDate) } <Content /></li>;
+})}
+</ul>
+
+<style>
+ul {
+	margin: 0;
+	list-style: none;
+	padding: 0;
+}
+li {
+	background: #f7f7f7;
+	border-radius: 0.5em;
+	padding: 1rem;
+	margin: 0 0 2rem;
+}
+</style>
