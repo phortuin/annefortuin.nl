@@ -1,18 +1,42 @@
 :root {
-	--margin-bottom: 2rem;
-	--max-width: 40rem;
+    --margin-bottom: 2rem;
+    --max-width: 40rem;
+    --sp-large: 4rem;
+    --sp-double: 2rem;
+    --sp-default: 1rem;
+    --sp-half: 0.5rem;
+    --br: 0.5rem;
+    --fs-small: 0.875em;
+    --fv-mono: "MONO" 1;
 }
-*, *:after, *:before {
-	box-sizing: border-box;
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
 }
 html {
-	height: 100%;
+    height: 100%;
 }
 body {
-    font: 1em -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-feature-settings: "kern", "liga";
+    font:
+        1em "Recursive",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
     padding: 1rem;
     line-height: 1.45;
+    font-variation-settings:
+        "wght" 400,
+        "slnt" 0;
+    font-feature-settings:
+        "kern" 1,
+        "liga" 1,
+        "dlig" 1,
+        "ss01" 0,
+        "ss02" 1;
+    color: CanvasText;
 }
 p:first-child {
     margin-top: 4rem;
@@ -25,8 +49,9 @@ p + h1 {
 }
 a {
     color: LinkText;
+    text-underline-offset: 0.1875rem;
 }
-a[href^="http"]:after {
+main a[href^="http"]:after {
     content: " ↗";
 }
 a[href^="#"] {
@@ -41,10 +66,17 @@ a[download]:after {
         padding: 2rem;
     }
 }
+strong {
+	font-variation-settings: "wght" 700;
+}
 main,
+.site-header,
 footer {
-	max-width: var(--max-width);
-	margin-inline: auto;
+    max-width: var(--max-width);
+    margin-inline: auto;
+}
+main.index {
+	display: flex;
 }
 hr {
     border: 0;
@@ -52,6 +84,15 @@ hr {
     height: 2px;
     width: 12rem;
     margin: 2rem 0;
+/*    width: 100%;*/
+/*    height: 0;*/
+/*    background: none;*/
+/*    border-bottom: 2px dotted black;*/
+}
+em {
+    font-variation-settings:
+        "slnt" -1,
+        "CRSV" 1;
 }
 h2,
 h3 {
@@ -64,36 +105,4 @@ h3 {
     text-transform: none;
     letter-spacing: 0.02em;
     padding-top: 2rem;
-}
-ul {
-    margin: 0;
-    padding-left: 1.25em;
-}
-li {
-    margin-bottom: 0.25em;
-}
-del {
-    opacity: 0.5;
-}
-footer {
-    margin-top: 2rem;
-}
-footer a {
-    color: black;
-}
-nav {
-	font-size: 0.875em;
-	margin-bottom: var(--margin-bottom);
-}
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-h1, article h1 {
-	font-size: 2rem;
-}
-nav {
-	font-size: 0.875em;
-	margin-bottom: 2rem;
 }
