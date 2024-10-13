@@ -5,10 +5,7 @@ import Base from "@layouts/Base.astro";
 const posts = await getCollection('posts');
 ---
 
-<Base>
-	<p>Page 12</p>
-	<h1>Blog</h1>
-
+<Base slug="blog">
 	<ul>
 		{ posts && posts.map((post) => (
 			<li>
