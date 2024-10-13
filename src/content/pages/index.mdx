@@ -1,17 +1,15 @@
 ---
-title: "annefortuin.nl"
-author: Me again, you asshole
-date: 2023-05-15
-description: Awesome stuff
 slug: ''
+template: 'index'
 ---
 import Posts from "@components/Posts.astro";
 import Header from "@components/Header.astro";
-import LinkToLatestPost from "@components/LinkToLatestPost.astro";
+import LinkToLatestThing from "@components/LinkToLatestThing.astro";
+import Footer from "@components/Footer.astro";
 
-# Father of 3, dog person, web developer
+<LinkToLatestThing />
 
-<LinkToLatestPost />
+# Father of 3 / dog person / web developer
 
 Disagrees to agree. Pretty good at making stuff for the web. I write, draw and play video games. In between dogs.
 
@@ -19,7 +17,6 @@ Disagrees to agree. Pretty good at making stuff for the web. I write, draw and p
 
 ## For sale
 
-- [[writings|Two Sentence Horror]]
 - [[Stuff I like]]
 - [[Notes]]
 - [[Uses]]
@@ -32,3 +29,5 @@ Disagrees to agree. Pretty good at making stuff for the web. I write, draw and p
 ## Writing
 
 <Posts />
+
+<Footer />
