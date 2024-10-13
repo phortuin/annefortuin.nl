@@ -4,9 +4,7 @@ const postsCollection = defineCollection({
 	type: "content",
 	schema: z.object({
 		title: z.string(),
-		author: z.string(),
 		pubDate: z.coerce.date(),
-		description: z.string(),
 	}),
 });
 
@@ -21,7 +19,9 @@ const notesCollection = defineCollection({
 const pagesCollection = defineCollection({
 	type: "content",
 	schema: z.object({
-		title: z.string(),
+		title: z.string().optional(),
+		description: z.string().optional(),
+		template: z.string().optional(),
 	})
 })
 
