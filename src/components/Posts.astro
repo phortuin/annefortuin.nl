@@ -1,21 +1,17 @@
 ---
+// Libs, types
 import { getCollection } from "astro:content";
 import { dateToYMD, formatDate } from "@lib/date";
+import { sortCollection } from "@lib/sort";
 
 const posts = await getCollection('posts');
 ---
 <nav>
 	<ul>
-		{ posts && posts.map((post) => (
-			<li>
-				<time datetime={ dateToYMD(post.data.pubDate) }>
-					{ formatDate(post.data.pubDate) }
-				</time>
-				<a
-					href={ `/blog/${ post.slug }/` }
-				>
-					{ post.data.title }
-				</a>
+		{ posts && sortCollection(posts).map((post) => (
+			<li>{
+				}<a href={ `/blog/${ post.slug }/` }>{ post.data.title }</a>
+				<time datetime={ dateToYMD(post.data.pubDate) }>{ formatDate(post.data.pubDate) }</time>
 			</li>
 		))}
 	</ul>
