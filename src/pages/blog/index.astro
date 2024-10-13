@@ -1,20 +1,9 @@
 ---
-import { getCollection } from "astro:content";
+// Components, layouts
 import Base from "@layouts/Base.astro";
-
-const posts = await getCollection('posts');
+import Posts from "@components/Posts.astro";
 ---
 
 <Base slug="blog">
-	<ul>
-		{ posts && posts.map((post) => (
-			<li>
-				<a
-					href={ `/blog/${ post.slug }/` }
-				>
-					{ post.data.title }
-				</a>
-			</li>
-		))}
-	</ul>
+	<Posts />
 </Base>
