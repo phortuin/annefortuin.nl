@@ -1,8 +1,8 @@
 ---
-title: Notey
-pubDate: 2023-07-17
+title: Notey badotey
+pubDate: 2024-07-17
 ---
-Yeah this was a thing that happenedz
+This is a notey boy
 
 ```
 Code workz too
