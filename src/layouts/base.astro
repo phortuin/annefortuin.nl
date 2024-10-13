@@ -1,18 +1,22 @@
 ---
-import Header from "@components/Header.astro";
+// Libs, types
+import { type CollectionEntry } from 'astro:content';
 
+// Components, layouts, styles
+import Header from "@components/Header.astro";
 import "../global.css";
 
-type Props = {
-	template?: string;
+// CollectionEntry has data (frontmatter) and content types for a collection
+type Props = CollectionEntry<"pages">["data"] & {
+	slug?: string;
 };
 
-const { template } = Astro.props;
+const { template, slug, title } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
 <head>
-	<title>{ `${import.meta.env.DEV ? 'dev ' : ''}annefortuin.nl` }</title>
+	<title>{ `${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・` : ""}Anne Fortuin` }</title>
 	<meta charset="utf-8">
 	<slot name="meta" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,57 +28,10 @@ const { template } = Astro.props;
 </head>
 <body
 	class={ template }>
-	<Header />
+	<Header slug={ slug }/>
 	<main id="main-content">
+		{ title && <h1>{title}</h1> }
 		<slot />
 	</main>
-	<footer>
-		<section>
-		<a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY</a> Anne Fortuin
-		<nav>
-			<ul>
-				<li>
-					<a href="/now/">Now</a>
-				</li>
-				<li>
-					<a href="/about/">About &raquo;</a>
-				</li>
-				<li>
-					<a href="/blog/">Blog</a>
-				</li>
-				<li>
-					<a href="/notes/">Notes</a>
-				</li>
-			</ul>
-		</nav>
-		</section>
-		<section>
-		<nav>
-			<ul>
-				<li>
-					<a rel="me" href="https://mastodon.social/@phortuin">Mastodon</a>
-				</li>
-				<li>
-					<a href="https://bsky.app/profile/annefortuin.nl">Bluesky</a>
-				</li>
-			</ul>
-		</nav>
-		</section>
-	</footer>
 </body>
 </html>
-
-<style>
-	body.about {
-		background: #dfd;
-	}
-	body.other {
-		background: #dfd;
-	}
-	body.writings {
-		background: #dff;
-	}
-	#main-content {
-		scroll-margin-top: var(--sp-default);
-	}
-</style>
