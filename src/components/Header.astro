@@ -1,19 +1,18 @@
 ---
+type Props = {
+	slug?: string;
+};
+
+const { slug } = Astro.props;
 ---
 <header class="site-header">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<nav>
-		<a href="/" rel="me">Anne Fortuin</a>
+		<a href="/" rel="me">&gt; annefortuin.nl{ slug && `/${slug}` }</a>
 	</nav>
 </header>
 
 <style>
-	p {
-		margin: 0 0 var(--sp-large);
-	}
-	nav a {
-		color: CanvasText;
-	}
 	.skip-link {
 		left: -9999rem;
 		position: absolute;
@@ -25,5 +24,16 @@
 		background: Highlight;
 		left: var(--sp-default);
 		padding: var(--sp-half);
+	}
+	nav a {
+		color: CanvasText;
+		text-decoration: none;
+	}
+	nav a::after {
+		content: "_";
+		animation: pulse 1s steps(2, start) infinite;
+	}
+	@keyframes pulse {
+	  to { visibility: hidden; }
 	}
 </style>
