@@ -1,22 +1,35 @@
 :root {
-    --margin-bottom: 2rem;
     --max-width: 40rem;
     --sp-large: 4rem;
-    --sp-double: 2rem;
-    --sp-default: 1rem;
-    --sp-half: 0.5rem;
+    --sp-double: 2.5rem;
+    --sp-default: 1.25rem;
+    --sp-half: 0.75rem;
+    --sp-tiny: 0.1875rem;
+    --sp-h1-correction: -0.0625rem;
     --br: 0.5rem;
+    --fs-h1: 2em;
+    --fs-default-large: 1.25em;
+    --fs-default: 1em;
     --fs-small: 0.875em;
     --fv-mono: "MONO" 1;
+    --ls-enlarged: 0.025em;
+    --ls-reduced: -0.025em;
+    --c-white: Canvas;
+    --c-yellow: #ffd90f;
+    --c-black: CanvasText;
+    --bg-darken: rgba(0, 0, 0, 0.05);
 }
+
 *,
 *:after,
 *:before {
     box-sizing: border-box;
 }
+
 html {
     height: 100%;
 }
+
 body {
     font:
         1em "Recursive",
@@ -25,8 +38,9 @@ body {
         "Segoe UI",
         Roboto,
         sans-serif;
-    padding: 1rem;
+    padding: var(--sp-default);
     line-height: 1.45;
+    font-size: var(--fs-default);
     font-variation-settings:
         "wght" 400,
         "slnt" 0;
@@ -36,73 +50,110 @@ body {
         "dlig" 1,
         "ss01" 0,
         "ss02" 1;
-    color: CanvasText;
+    color: var(--c-black);
+    letter-spacing: var(--ls-reduced);
+    background: var(--c-white);
 }
-p:first-child {
-    margin-top: 4rem;
+
+body.index {
+	background: var(--c-yellow);
 }
-p {
-    margin: 0 0 1rem;
-}
-p + h1 {
-    margin-top: -1rem;
-}
-a {
-    color: LinkText;
-    text-underline-offset: 0.1875rem;
-}
-main a[href^="http"]:after {
-    content: " ↗";
-}
-a[href^="#"] {
-    color: #000;
-}
-a[download]:after {
-    content: " ↓";
-}
+
 @media screen and (min-width: 40rem) {
     body {
-        font-size: 1.25em;
-        padding: 2rem;
+        font-size: var(--fs-default-large);
+        padding: var(--sp-double);
     }
 }
-strong {
-	font-variation-settings: "wght" 700;
+
+main {
+	margin-block-start: var(--sp-double);
 }
+
 main,
 .site-header,
 footer {
-    max-width: var(--max-width);
-    margin-inline: auto;
+	max-width: var(--max-width);
+	margin-inline: auto;
 }
-main.index {
-	display: flex;
+
+h1 {
+	font-size: var(--fs-h1);
+	font-variation-settings: "wght" 900, "slnt" -5, "CRSV" 1;
+	margin-block-end: var(--sp-large);
+	line-height: 1.1;
+	margin-inline-start: var(--sp-h1-correction);
 }
+
+h2 {
+	margin-block-start: var(--sp-default);
+	margin-block-end: var(--sp-half);
+    font-size: var(--fs-default);
+    font-variation-settings: "wght" 800;
+	letter-spacing: var(--ls-enlarged);
+}
+
+ul {
+    margin-block-end: var(--sp-default);
+	padding-inline-start: var(--sp-default);
+	list-style: none;
+}
+
+li {
+	margin-block-end: var(--sp-tiny);
+}
+
+li::before {
+	display: inline-block;
+	content: " ";
+	background: url('data:image/svg+xml,<svg height="6" width="6" xmlns="http://www.w3.org/2000/svg"><rect rx="2" width="6" height="6" fill="currentColor" /></svg>');
+	width: var(--sp-default);
+	background-repeat: no-repeat;
+	background-position: center left;
+	margin-inline-start: calc(-1 * var(--sp-default));
+}
+
+p {
+	margin-block: 0 var(--fs-default);
+}
+
 hr {
+    height: 6px;
+    width: 100%;
+    margin: var(--sp-double) 0;
     border: 0;
-    background: black;
-    height: 2px;
-    width: 12rem;
-    margin: 2rem 0;
-/*    width: 100%;*/
-/*    height: 0;*/
-/*    background: none;*/
-/*    border-bottom: 2px dotted black;*/
+    background: url('data:image/svg+xml,<svg height="7" width="7" xmlns="http://www.w3.org/2000/svg"><rect rx="1" width="3" height="3" fill="currentColor" /></svg>');
 }
+
+a {
+	color: var(--c-black);
+	text-underline-offset: var(--sp-tiny);
+}
+
+a[href^="http"]:after {
+    content: " ↗";
+}
+
+a[download]:after {
+    content: " ↓";
+}
+
+strong {
+	font-variation-settings: "wght" 700;
+}
+
 em {
     font-variation-settings:
-        "slnt" -1,
+        "slnt" -8,
         "CRSV" 1;
 }
-h2,
-h3 {
-    font-size: 1em;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.0625em;
-}
-h3 {
-    text-transform: none;
-    letter-spacing: 0.02em;
-    padding-top: 2rem;
+
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	position: absolute;
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	white-space: nowrap;
 }
