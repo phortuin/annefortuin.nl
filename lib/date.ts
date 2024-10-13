@@ -1,4 +1,4 @@
-const LOCALE = "en";
+const LOCALE = "nl";
 
 /**
  * Get ISO date without time (yyyy-mm-dd) for Date object
@@ -8,7 +8,6 @@ export const dateToYMD = (date:Date) => date.toISOString().slice(0, 10);
 
 export function formatDate(date:Date) {
 	const formatter = new Intl.DateTimeFormat(LOCALE, {
-		weekday: "long",
 		year: "numeric",
 		month: "long",
 		day: "numeric",
