@@ -1,34 +1,60 @@
 ---
 // Libs, types
-import { type CollectionEntry } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import { formatDate, dateToYMD } from "@lib/date";
+import { sortCollection } from "@lib/sort";
 
 // Components, layouts
 import Base from "@layouts/Base.astro";
+import NextPost from "@components/NextPost.astro";
 
-// CollectionEntry has data (frontmatter) and content types for a collection
-type Props = CollectionEntry<"posts">["data"];
+// CollectionEntry has data (frontmatter) and content types for a collection.
+// We add slug as a custom property
+type Props = CollectionEntry<"posts">["data"] & {
+	slug?: string;
+};
 
-const { title, author, pubDate, description } = Astro.props;
+const { title, pubDate, slug } = Astro.props;
 ---
 <Base
-	template="blog">
+	slug={ slug }>
 	<Fragment slot="meta">
-		<meta name="description" content={ description }>
+		<meta name="description" content={ title }>
 	</Fragment>
 	<article itemscope itemtype="http://schema.org/BlogPosting">
 		<header>
 			<h1 itemprop="headline">{ title }</h1>
 			<div class="byline vcard">
-				<address class="author">By <a rel="author" class="url fn n" href="/">{ author }</a></address>
+				<address class="visually-hidden author">By <a rel="author" class="url fn n" href="/">Anne Fortuin</a></address>
 				<time
 					itemprop="datePublished"
-					datetime={ pubDate.toISOString().slice(0, 10) }>
-					on { formatDate(pubDate) }
+					datetime={ dateToYMD(pubDate) }>
+					{ formatDate(pubDate) }
 				</time>
 			</div>
 		</header>
-		<hr>
 		<slot />
 	</article>
+	<hr>
+	<NextPost slug={ slug } />
 </Base>
+
+<style>
+	h1 {
+		font-variation-settings: "wght" 900;
+		font-size: 2rem;
+		margin-block-end: var(--sp-tiny);
+	}
+	time {
+		font-variation-settings: "wght" 800;
+	}
+	article {
+		padding-block-start: var(--sp-double);
+	}
+	header {
+		margin-block-end: var(--sp-double);
+	}
+	hr {
+		margin-block: var(--sp-large) var(--sp-default);
+	}
+</style>
