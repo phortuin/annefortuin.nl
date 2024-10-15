@@ -14,7 +14,7 @@
     --fv-mono: "MONO" 1;
     --ls-enlarged: 0.025em;
     --ls-reduced: -0.025em;
-    --c-white: Canvas;
+    --c-white: #f7f7f0;
     --c-yellow: #ffd90f;
     --c-black: CanvasText;
     --bg-darken: rgba(0, 0, 0, 0.05);
@@ -52,11 +52,7 @@ body {
         "ss02" 1;
     color: var(--c-black);
     letter-spacing: var(--ls-reduced);
-    background: var(--c-white);
-}
-
-body.index {
-	background: var(--c-yellow);
+	background: var(--c-white);
 }
 
 @media screen and (min-width: 40rem) {
