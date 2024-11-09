@@ -1,65 +1,66 @@
 :root {
-    --max-width: 40rem;
-    --sp-large: 4rem;
-    --sp-double: 2.5rem;
-    --sp-default: 1.25rem;
-    --sp-half: 0.75rem;
-    --sp-tiny: 0.1875rem;
-    --sp-h1-correction: -0.0625rem;
-    --br: 0.5rem;
-    --fs-h1: 2em;
-    --fs-default-large: 1.25em;
-    --fs-default: 1em;
-    --fs-small: 0.875em;
-    --fv-mono: "MONO" 1;
-    --ls-enlarged: 0.025em;
-    --ls-reduced: -0.025em;
-    --c-white: #f7f7f0;
-    --c-yellow: #ffd90f;
-    --c-black: CanvasText;
-    --bg-darken: rgba(0, 0, 0, 0.05);
+	--max-width: 40rem;
+	--sp-large: 4rem;
+	--sp-double: 2.5rem;
+	--sp-default: 1.25rem;
+	--sp-half: 0.75rem;
+	--sp-tiny: 0.1875rem;
+	--sp-h1-correction: -0.0625rem;
+	--br: 0.5rem;
+	--fs-h1: 2em;
+	--fs-default-large: 1.25em;
+	--fs-default: 1em;
+	--fs-small: 0.875em;
+	--fv-mono: "MONO" 1;
+	--ls-enlarged: 0.025em;
+	--ls-reduced: -0.025em;
+	--c-white: #f7f7f0;
+	--c-yellow: #ffd90f;
+	--c-black: CanvasText;
+	--c-black-less-opaque: rgba(0, 0, 0, 0.5);
+	--bg-darken: rgba(0, 0, 0, 0.05);
 }
 
 *,
 *:after,
 *:before {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-    height: 100%;
+	height: 100%;
 }
 
 body {
-    font:
-        1em "Recursive",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        sans-serif;
-    padding: var(--sp-default);
-    line-height: 1.45;
-    font-size: var(--fs-default);
-    font-variation-settings:
-        "wght" 400,
-        "slnt" 0;
-    font-feature-settings:
-        "kern" 1,
-        "liga" 1,
-        "dlig" 1,
-        "ss01" 0,
-        "ss02" 1;
-    color: var(--c-black);
-    letter-spacing: var(--ls-reduced);
+	font:
+		1em "Recursive",
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		Roboto,
+		sans-serif;
+	padding: var(--sp-default);
+	line-height: 1.45;
+	font-size: var(--fs-default);
+	font-variation-settings:
+		"wght" 400,
+		"slnt" 0;
+	font-feature-settings:
+		"kern" 1,
+		"liga" 1,
+		"dlig" 1,
+		"ss01" 0,
+		"ss02" 1;
+	color: var(--c-black);
+	letter-spacing: var(--ls-reduced);
 	background: var(--c-white);
 }
 
 @media screen and (min-width: 40rem) {
-    body {
-        font-size: var(--fs-default-large);
-        padding: var(--sp-double);
-    }
+	body {
+		font-size: var(--fs-default-large);
+		padding: var(--sp-double);
+	}
 }
 
 main {
@@ -75,7 +76,10 @@ footer {
 
 h1 {
 	font-size: var(--fs-h1);
-	font-variation-settings: "wght" 900, "slnt" -5, "CRSV" 1;
+	font-variation-settings:
+		"wght" 900,
+		"slnt" -5,
+		"CRSV" 1;
 	margin-block-end: var(--sp-large);
 	line-height: 1.1;
 	margin-inline-start: var(--sp-h1-correction);
@@ -84,13 +88,13 @@ h1 {
 h2 {
 	margin-block-start: var(--sp-default);
 	margin-block-end: var(--sp-half);
-    font-size: var(--fs-default);
-    font-variation-settings: "wght" 800;
+	font-size: var(--fs-default);
+	font-variation-settings: "wght" 800;
 	letter-spacing: var(--ls-enlarged);
 }
 
 ul {
-    margin-block-end: var(--sp-default);
+	margin-block-end: var(--sp-default);
 	padding-inline-start: var(--sp-default);
 	list-style: none;
 }
@@ -100,7 +104,8 @@ li {
 }
 
 li::before {
-	display: inline-block;
+	display: block;
+	float: left;
 	content: " ";
 	background: url('data:image/svg+xml,<svg height="6" width="6" xmlns="http://www.w3.org/2000/svg"><rect rx="2" width="6" height="6" fill="currentColor" /></svg>');
 	width: var(--sp-default);
@@ -114,11 +119,11 @@ p {
 }
 
 hr {
-    height: 6px;
-    width: 100%;
-    margin: var(--sp-double) 0;
-    border: 0;
-    background: url('data:image/svg+xml,<svg height="7" width="7" xmlns="http://www.w3.org/2000/svg"><rect rx="1" width="3" height="3" fill="currentColor" /></svg>');
+	height: 6px;
+	width: 100%;
+	margin: var(--sp-double) 0;
+	border: 0;
+	background: url('data:image/svg+xml,<svg height="7" width="7" xmlns="http://www.w3.org/2000/svg"><rect rx="1" width="3" height="3" fill="currentColor" /></svg>');
 }
 
 a {
@@ -127,11 +132,11 @@ a {
 }
 
 a[href^="http"]:after {
-    content: " ↗";
+	content: " ↗";
 }
 
 a[download]:after {
-    content: " ↓";
+	content: " ↓";
 }
 
 strong {
@@ -139,9 +144,9 @@ strong {
 }
 
 em {
-    font-variation-settings:
-        "slnt" -8,
-        "CRSV" 1;
+	font-variation-settings:
+		"slnt" -8,
+		"CRSV" 1;
 }
 
 .visually-hidden {

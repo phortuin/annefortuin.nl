@@ -21,8 +21,7 @@ export default defineConfig({
 	},
 	site: process.env.SITE_URL,
 	trailingSlash: "always",
-	compressHTML: true,
-	integrations: [mdx()]
+	integrations: [mdx()],
 });
 
 /**
@@ -31,10 +30,8 @@ export default defineConfig({
 function remarkPlugins(): RemarkPlugins {
 	const options = {
 		aliasDivider: "|",
-		hrefTemplate: (permalink:string) => `/${permalink}/`,
-		pageResolver: (name:string) => [ slugify(name, { lower: true }) ],
+		hrefTemplate: (permalink: string) => `/${permalink}/`,
+		pageResolver: (name: string) => [slugify(name, { lower: true })],
 	};
-	return [
-		[ remarkWikiLink, options ],
-	];
+	return [[remarkWikiLink, options]];
 }

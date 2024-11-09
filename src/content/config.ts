@@ -14,7 +14,7 @@ const notesCollection = defineCollection({
 		title: z.string(),
 		pubDate: z.coerce.date(),
 	}),
-})
+});
 
 const pagesCollection = defineCollection({
 	type: "content",
@@ -22,11 +22,11 @@ const pagesCollection = defineCollection({
 		title: z.string().optional(),
 		description: z.string().optional(),
 		template: z.string().optional(),
-	})
-})
+	}),
+});
 
 export const collections = {
-	"posts": postsCollection,
-	"notes": notesCollection,
-	"pages": pagesCollection,
+	posts: postsCollection,
+	notes: notesCollection,
+	pages: pagesCollection,
 };

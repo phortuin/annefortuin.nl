@@ -7,18 +7,21 @@ import { sortCollection } from "@lib/sort";
 // Find latest item in all collections
 const allPosts = await getCollection("posts");
 const allNotes = await getCollection("notes");
-const latestThing = sortCollection([ ...allNotes, ...allPosts ])[0];
+const latestThing = sortCollection([...allNotes, ...allPosts])[0];
 ---
+
 <p>
-	<time datetime={ dateToYMD(latestThing.data.pubDate) }>
-		{ timeAgo(latestThing.data.pubDate) }
+	<time datetime={dateToYMD(latestThing.data.pubDate)}>
+		{timeAgo(latestThing.data.pubDate)}
 	</time>
 	—
-	{ latestThing.collection === "posts" ? (
-		<a href={ `/blog/${latestThing.slug}/` }>{ latestThing.data.title }</a>
-	) : (
-		<a href={ `/notes/` }>{ latestThing.data.title }</a>
-	)}
+	{
+		latestThing.collection === "posts" ? (
+			<a href={`/blog/${latestThing.slug}/`}>{latestThing.data.title}</a>
+		) : (
+			<a href={`/notes/`}>{latestThing.data.title}</a>
+		)
+	}
 </p>
 
 <style>

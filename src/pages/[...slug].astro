@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import Base from "@layouts/Base.astro";
 
 /**
@@ -14,16 +14,17 @@ import Base from "@layouts/Base.astro";
  * @see https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default
  */
 export async function getStaticPaths() {
-    const pages = await getCollection('pages');
-    return pages.map((page) => ({
-        params: { slug: page.slug || undefined }, props: { page },
-    }));
+	const pages = await getCollection("pages");
+	return pages.map((page) => ({
+		params: { slug: page.slug || undefined },
+		props: { page },
+	}));
 }
 
 const { page } = Astro.props;
 const { Content } = await page.render();
 ---
 
-<Base slug={ page.slug } template={ page.data.template } title={ page.data.title }>
+<Base slug={page.slug} template={page.data.template} title={page.data.title}>
 	<Content />
 </Base>

@@ -4,20 +4,28 @@ import { getCollection } from "astro:content";
 import { formatDate } from "@lib/date";
 import { sortCollection } from "@lib/sort";
 
-const allNotes = await getCollection('notes');
+const allNotes = await getCollection("notes");
 ---
+
 <ul>
-	{ allNotes && sortCollection(allNotes).map(async (note) => {
-		const { Content } = await note.render();
-		return <li>{ formatDate(note.data.pubDate) } <Content /></li>;
-	})}
+	{
+		allNotes &&
+			sortCollection(allNotes).map(async (note) => {
+				const { Content } = await note.render();
+				return (
+					<li>
+						{formatDate(note.data.pubDate)} <Content />
+					</li>
+				);
+			})
+	}
 </ul>
 
 <style>
 	ul {
 		padding: 0;
 	}
- 	li::before {
+	li::before {
 		content: "";
- 	}
+	}
 </style>

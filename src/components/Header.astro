@@ -5,10 +5,11 @@ type Props = {
 
 const { slug } = Astro.props;
 ---
+
 <header class="site-header">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<nav>
-		<a href="/" rel="me">&gt; annefortuin.nl{ slug && `/${slug}` }</a>
+		<a href="/" rel="me">&gt; annefortuin.nl{slug && `/${slug}`}</a>
 	</nav>
 </header>
 
@@ -34,6 +35,8 @@ const { slug } = Astro.props;
 		animation: pulse 1s steps(2, start) infinite;
 	}
 	@keyframes pulse {
-	  to { visibility: hidden; }
+		to {
+			visibility: hidden;
+		}
 	}
 </style>
