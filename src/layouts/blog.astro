@@ -1,6 +1,6 @@
 ---
 // Libs, types
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection } from "astro:content";
 import { formatDate, dateToYMD } from "@lib/date";
 import { sortCollection } from "@lib/sort";
 
@@ -16,37 +16,39 @@ type Props = CollectionEntry<"posts">["data"] & {
 
 const { title, pubDate, slug } = Astro.props;
 ---
-<Base
-	slug={ slug }>
+
+<Base slug={slug}>
 	<Fragment slot="meta">
-		<meta name="description" content={ title }>
+		<meta name="description" content={title} />
 	</Fragment>
 	<article itemscope itemtype="http://schema.org/BlogPosting">
 		<header>
-			<h1 itemprop="headline">{ title }</h1>
+			<h1 itemprop="headline">{title}</h1>
 			<div class="byline vcard">
-				<address class="visually-hidden author">By <a rel="author" class="url fn n" href="/">Anne Fortuin</a></address>
-				<time
-					itemprop="datePublished"
-					datetime={ dateToYMD(pubDate) }>
-					{ formatDate(pubDate) }
+				<address class="visually-hidden author">
+					By <a rel="author" class="url fn n" href="/">Anne Fortuin</a
+					>
+				</address>
+				<time itemprop="datePublished" datetime={dateToYMD(pubDate)}>
+					{formatDate(pubDate)}
 				</time>
 			</div>
 		</header>
 		<slot />
 	</article>
-	<hr>
-	<NextPost slug={ slug } />
+	<hr />
+	<NextPost slug={slug} />
 </Base>
 
 <style>
 	h1 {
+		display: inline;
 		font-variation-settings: "wght" 900;
-		font-size: 2rem;
 		margin-block-end: var(--sp-tiny);
 	}
-	time {
-		font-variation-settings: "wght" 800;
+	.byline {
+		font-size: var(--fs-small);
+		margin-block-end: var(--sp-tiny);
 	}
 	article {
 		padding-block-start: var(--sp-double);
