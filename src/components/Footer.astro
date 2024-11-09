@@ -1,13 +1,11 @@
 ---
+
 ---
+
 <footer>
-	<section>
-	<a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY</a> Anne Fortuin
 	<nav>
 		<ul>
-			<li>{
-				}<a href="/now/">Now</a>
-			</li>
+			<li><a href="/now/">Now</a></li>
 			<li>
 				<a href="/about/">About &raquo;</a>
 			</li>
@@ -19,26 +17,49 @@
 			</li>
 		</ul>
 	</nav>
-	<nav>
+	<nav class="social">
 		<ul>
-			<li>{
-				}<a rel="me" href="https://mastodon.social/@phortuin">Mastodon</a>
+			<li>
+				<a
+					class="silent"
+					href="https://creativecommons.org/licenses/by/4.0/deed.en"
+					>CC BY</a
+				> Anne Fortuin
 			</li>
 			<li>
-				<a href="https://bsky.app/profile/annefortuin.nl">Bluesky</a>
+				<a rel="me" href="https://mastodon.social/@phortuin">Mastodon</a
+				>
+			</li>
+			<li>
+				<a rel="me" href="https://bsky.app/profile/annefortuin.nl"
+					>Bluesky</a
+				>
+			</li>
+			<li>
+				<a rel="me" href="https://github.com/phortuin">GitHub</a>
 			</li>
 		</ul>
 	</nav>
-	</section>
 </footer>
 
 <style>
+	footer {
+		margin-block-start: var(--sp-large);
+		font-size: var(--fs-small);
+	}
+	.silent {
+		text-decoration: none;
+	}
+	a::after {
+		content: "";
+	}
 	ul {
 		display: flex;
+		margin: 0;
 		padding: 0;
+		gap: var(--sp-half);
 	}
 	li::before {
 		content: "";
-		margin-block-end: 0;
 	}
 </style>
