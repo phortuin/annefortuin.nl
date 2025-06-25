@@ -1,9 +1,9 @@
 ---
-// Components, layouts
 import Base from "@layouts/Base.astro";
 import Posts from "@components/Posts.astro";
+import { locales } from "@lib/date";
 ---
 
-<Base slug="blog">
+<Base lang={locales.EN} slug="blog">
 	<Posts />
 </Base>

@@ -25,6 +25,11 @@ const { page } = Astro.props;
 const { Content } = await page.render();
 ---
 
-<Base slug={page.slug} template={page.data.template} title={page.data.title}>
+<Base
+	slug={page.slug}
+	template={page.data.template}
+	title={page.data.title}
+	lang={page.data.lang}
+>
 	<Content />
 </Base>

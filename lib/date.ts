@@ -1,4 +1,9 @@
-const LOCALE = "en-UK";
+export const locales = {
+	NL: "nl",
+	EN: "en",
+} as const;
+export type Locale = (typeof locales)[keyof typeof locales];
+export const DEFAULT_LOCALE = locales.NL;
 
 /**
  * Get ISO date without time (yyyy-mm-dd) for Date object
@@ -8,7 +13,7 @@ export const dateToYMD = (date: Date): string =>
 	date.toISOString().slice(0, 10);
 
 export function formatDate(date: Date) {
-	const formatter = new Intl.DateTimeFormat(LOCALE, {
+	const formatter = new Intl.DateTimeFormat(DEFAULT_LOCALE, {
 		year: "numeric",
 		month: "long",
 		day: "numeric",
@@ -21,7 +26,7 @@ export function formatDate(date: Date) {
  * @see https://stackoverflow.com/a/72817357
  */
 export function timeAgo(date: Date) {
-	const formatter = new Intl.RelativeTimeFormat(LOCALE);
+	const formatter = new Intl.RelativeTimeFormat(DEFAULT_LOCALE);
 	const ranges = [
 		["years", 3600 * 24 * 365],
 		["months", 3600 * 24 * 30],
@@ -39,5 +44,5 @@ export function timeAgo(date: Date) {
 			return formatter.format(Math.round(delta), type);
 		}
 	}
-	return "A long time ago";
+	return "Heel, heel lang geleden";
 }

@@ -2,7 +2,6 @@
 // Libs, types
 import { type CollectionEntry, getCollection } from "astro:content";
 import { formatDate, dateToYMD } from "@lib/date";
-import { sortCollection } from "@lib/sort";
 
 // Components, layouts
 import Base from "@layouts/Base.astro";
@@ -14,10 +13,10 @@ type Props = CollectionEntry<"posts">["data"] & {
 	slug?: string;
 };
 
-const { title, pubDate, slug } = Astro.props;
+const { title, pubDate, slug, lang } = Astro.props;
 ---
 
-<Base slug={slug}>
+<Base lang={lang} slug={slug}>
 	<Fragment slot="meta">
 		<meta name="description" content={title} />
 	</Fragment>
@@ -37,7 +36,7 @@ const { title, pubDate, slug } = Astro.props;
 		<slot />
 	</article>
 	<hr />
-	<NextPost slug={slug} />
+	{slug && <NextPost slug={slug} />}
 </Base>
 
 <style>

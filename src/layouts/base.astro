@@ -1,8 +1,6 @@
 ---
-// Libs, types
 import { type CollectionEntry } from "astro:content";
-
-// Components, layouts, styles
+import { DEFAULT_LOCALE } from "@lib/date";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import "../global.css";
@@ -12,11 +10,11 @@ type Props = CollectionEntry<"pages">["data"] & {
 	slug?: string;
 };
 
-const { template, slug, title } = Astro.props;
+const { template, slug, title, lang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang || DEFAULT_LOCALE}>
 	<head>
 		<title>
 			{
@@ -46,6 +44,5 @@ const { template, slug, title } = Astro.props;
 			<slot />
 		</main>
 		<Footer />
-
 	</body>
 </html>
