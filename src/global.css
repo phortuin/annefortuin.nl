@@ -17,9 +17,9 @@
 	--ls-enlarged: 0.025em;
 	--ls-reduced: -0.025em;
 	--c-white: #f7f7f0;
-	--c-yellow: #ffd90f;
 	--c-black: CanvasText;
 	--c-black-less-opaque: rgba(0, 0, 0, 0.5);
+	--c-yellow: rgba(250, 224, 0, 0.5);
 	--bg-darken: rgba(0, 0, 0, 0.05);
 }
 
@@ -168,7 +168,7 @@ em {
 	border-radius: var(--br);
 }
 
-.markdown-content p:last-child {
+p:last-child {
 	margin-block-end: 0;
 }
 
@@ -187,4 +187,18 @@ pre {
 .astro-code {
 	border-radius: var(--br);
 	padding: var(--sp-half) var(--sp-default);
+}
+
+blockquote {
+	margin-block: 0 var(--sp-default);
+	margin-inline: 0;
+	border-left: 0.5rem solid var(--bg-darken);
+	padding-inline: var(--sp-default) 0;
+}
+
+mark {
+	padding-inline: var(--sp-tiny);
+	border-radius: var(--br-small);
+	box-decoration-break: clone;
+	background-color: var(--c-yellow);
 }
