@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import { type RemarkPlugins } from "astro";
 import mdx from "@astrojs/mdx";
+import { remarkMark } from "remark-mark-highlight";
 
 import remarkWikiLink from "remark-wiki-link";
 import slugify from "slugify";
@@ -30,5 +31,5 @@ function remarkPlugins(): RemarkPlugins {
 		hrefTemplate: (permalink: string) => `/${permalink}/`,
 		pageResolver: (name: string) => [slugify(name, { lower: true })],
 	};
-	return [[remarkWikiLink, options]];
+	return [remarkMark, [remarkWikiLink, options]];
 }
