@@ -21,15 +21,19 @@ export default defineConfig({
 	},
 	scopedStyleStrategy: "class",
 	site: SITE_URL,
-	trailingSlash: "always",
 	integrations: [mdx()],
 });
 
 function remarkPlugins(): RemarkPlugins {
 	const options = {
 		aliasDivider: "|",
-		hrefTemplate: (permalink: string) => `/${permalink}/`,
-		pageResolver: (name: string) => [slugify(name, { lower: true })],
+		hrefTemplate: (permalink: string) => `/${permalink}`,
+		pageResolver: (name: string) => {
+			if (/\d{4}-\d{2}-\d{2}.*/.test(name)) {
+				return [`notes/#${name}`];
+			}
+			return [slugify(name, { lower: true })];
+		},
 	};
 	return [remarkMark, [remarkWikiLink, options]];
 }
