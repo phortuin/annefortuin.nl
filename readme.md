@@ -28,6 +28,7 @@ $ npm run deploy
 ## Todo
 
 - [ ] Set SITE_URL to something during production build?
+- [ ] SEO card support & meta tag stuff. Kill me please
 - [ ] Implement [Reading time](https://docs.astro.build/en/recipes/reading-time/)
 - [ ] Header w/ clickable subsections (eg. click blog in `blog/blog-post` and then go to blog overview)
 - [ ] Add robots.txt
