@@ -18,6 +18,7 @@ export default defineConfig({
 		},
 		remarkPlugins: remarkPlugins(),
 	},
+	scopedStyleStrategy: "class",
 	site: SITE_URL,
 	trailingSlash: "always",
 	integrations: [mdx()],
