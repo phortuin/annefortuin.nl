@@ -4,6 +4,7 @@ import { type CollectionEntry } from "astro:content";
 
 // Components, layouts, styles
 import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 import "../global.css";
 
 // CollectionEntry has data (frontmatter) and content types for a collection
@@ -44,5 +45,7 @@ const { template, slug, title } = Astro.props;
 			{title && <h1>{title}</h1>}
 			<slot />
 		</main>
+		<Footer />
+
 	</body>
 </html>
