@@ -1,12 +1,13 @@
-const LOCALE = "nl";
+const LOCALE = "en-UK";
 
 /**
  * Get ISO date without time (yyyy-mm-dd) for Date object
  * @returns {string} yyyy-mm-dd
  */
-export const dateToYMD = (date:Date):string => date.toISOString().slice(0, 10);
+export const dateToYMD = (date: Date): string =>
+	date.toISOString().slice(0, 10);
 
-export function formatDate(date:Date) {
+export function formatDate(date: Date) {
 	const formatter = new Intl.DateTimeFormat(LOCALE, {
 		year: "numeric",
 		month: "long",
@@ -19,7 +20,7 @@ export function formatDate(date:Date) {
  * Return a human-readable relative time string
  * @see https://stackoverflow.com/a/72817357
  */
-export function timeAgo(date:Date) {
+export function timeAgo(date: Date) {
 	const formatter = new Intl.RelativeTimeFormat(LOCALE);
 	const ranges = [
 		["years", 3600 * 24 * 365],
@@ -37,6 +38,6 @@ export function timeAgo(date:Date) {
 			const delta = secondsElapsed / duration;
 			return formatter.format(Math.round(delta), type);
 		}
- 	}
+	}
 	return "A long time ago";
 }
