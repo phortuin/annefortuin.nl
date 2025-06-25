@@ -2,11 +2,11 @@
   "name": "annefortuin.nl",
   "version": "1.0.0",
   "description": "Website for annefortuin.nl",
-  "license": "MIT",
-  "homepage": "https://www.annefortuin.nl/",
+  "license": "ISC",
+  "homepage": "https://github.com/phortuin/annefortuin.nl",
   "author": {
     "name": "Anne Fortuin",
-    "url": "phortuin.nl"
+    "url": "https://www.annefortuin.nl/"
   },
   "repository": "phortuin/annefortuin.nl",
   "scripts": {

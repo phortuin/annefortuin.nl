@@ -43,7 +43,3 @@ Astro is cool and all and it's easy to set up stuff fast, but it's overkill for 
 ### Move away from CF Pages
 
 On hard refreshes, there’s an error `Pages had an internal error, if this persists please contact support!` that randomly occurs. It seems to have to do with DNS config (since it doesn’t occur on the [pages.dev](https://annefortuin-nl.pages.dev) URL). I’d rather dump everything on S3 again and have CF do the CDN/DNS management than have issues like these.
-
-## License
-
-MIT
