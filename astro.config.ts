@@ -17,6 +17,9 @@ export default defineConfig({
 		enabled: false,
 	},
 	markdown: {
+		shikiConfig: {
+			theme: "rose-pine-moon",
+		},
 		remarkPlugins: remarkPlugins(),
 	},
 	site: process.env.SITE_URL,
