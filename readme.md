@@ -21,25 +21,18 @@ $ npm run deploy
 
 ## Tech
 
--   Astro as SSG
--   Markdown files
--   Statically deployed to Cloudflare Pages
+- Astro as SSG
+- Markdown files
+- Statically deployed to Cloudflare Pages
 
 ## Todo
 
--   [ ] Set SITE_URL to something during production build?
--   [ ] Have pages without trailing slash? Seems to be a standard nowadays. How wuld that even work with a static deploy and no server side magic :thinking_face:
--   [x] Use [Content Collections](https://docs.astro.build/en/guides/content-collections/) instead of glob?
--   [ ] Implement [Reading time](https://docs.astro.build/en/recipes/reading-time/)
--   [ ] Header w/ breadcrumbs; [see here](https://markboulton.co.uk/journal/an-anchor/) and [here](https://paulmillr.com/posts/eth-cryptography/)
--   [ ] Add robots.txt
--   [ ] Move away from Astro
--   [ ] Move away from Cloudflare Pages
-
-### Move away from Astro
-
-Astro is cool and all and it's easy to set up stuff fast, but it's overkill for a super simple blog like this. I’d rather have a custom build with Nunjucks and Marked which will work forever, instead of relying on a dependency that might go away, break, or need updates every so often.
-
-### Move away from CF Pages
-
-On hard refreshes, there’s an error `Pages had an internal error, if this persists please contact support!` that randomly occurs. It seems to have to do with DNS config (since it doesn’t occur on the [pages.dev](https://annefortuin-nl.pages.dev) URL). I’d rather dump everything on S3 again and have CF do the CDN/DNS management than have issues like these.
+- [ ] Set SITE_URL to something during production build?
+- [ ] Have pages without trailing slash? Seems to be a standard nowadays. How wuld that even work with a static deploy and no server side magic :thinking_face:
+- [ ] Implement [Reading time](https://docs.astro.build/en/recipes/reading-time/)
+- [ ] Header w/ clickable subsections (eg. click blog in `blog/blog-post` and then go to blog overview)
+- [ ] Add robots.txt
+- [ ] Guestbook
+- [ ] Have improved spacing around endash and emdash
+- [x] Header w/ breadcrumbs; [see here](https://markboulton.co.uk/journal/an-anchor/) and [here](https://paulmillr.com/posts/eth-cryptography/)
+- [x] Use [Content Collections]
