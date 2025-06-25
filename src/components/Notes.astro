@@ -1,7 +1,6 @@
 ---
-// Libs, types
 import { getCollection } from "astro:content";
-import { formatDate } from "@lib/date";
+import { dateToYMD, formatDate } from "@lib/date";
 import { sortCollection } from "@lib/sort";
 
 const allNotes = await getCollection("notes");
@@ -12,9 +11,20 @@ const allNotes = await getCollection("notes");
 		allNotes &&
 			sortCollection(allNotes).map(async (note) => {
 				const { Content } = await note.render();
+				const ymdDate = dateToYMD(note.data.pubDate);
 				return (
-					<li>
-						{formatDate(note.data.pubDate)} <Content />
+					<li class="note">
+						<h2 class="note-header" id={ymdDate}>
+							<time datetime={ymdDate}>
+								<a class="silent" href={`#${ymdDate}`}>
+									{formatDate(note.data.pubDate)}
+								</a>
+							</time>
+						</h2>
+						<hr class="note-hr" />
+						<div class="markdown-content">
+							<Content />
+						</div>
 					</li>
 				);
 			})
@@ -23,9 +33,38 @@ const allNotes = await getCollection("notes");
 
 <style>
 	ul {
+		margin-block-start: var(--sp-large);
 		padding: 0;
 	}
 	li::before {
 		content: "";
+	}
+	.note {
+		border: 2px solid var(--c-black);
+		border-radius: var(--br);
+		margin-block-end: var(--sp-double);
+		box-shadow: 0 0.125em 0 0 var(--c-black);
+		overflow: hidden; /* Prevents border from overflowing */
+	}
+	.note-header,
+	.markdown-content {
+		padding: var(--sp-default);
+	}
+	.note-header {
+		margin: 0;
+		scroll-margin-block-start: var(--sp-double);
+		padding-block-end: calc(var(--sp-default) + var(--sp-tiny));
+		background-color: var(--bg-darken);
+	}
+	.note-hr {
+		margin: 0;
+	}
+	.note time {
+		font-variation-settings: "wght" 500;
+		text-transform: uppercase;
+		font-size: var(--fs-small);
+	}
+	.note time a {
+		text-underline-offset: var(--sp-small);
 	}
 </style>
