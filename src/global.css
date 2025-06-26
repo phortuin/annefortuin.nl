@@ -9,10 +9,14 @@
 	--sp-h1-correction: -0.0625rem;
 	--br: 0.5rem;
 	--br-small: 0.25rem;
+	--ff:
+		"Recursive", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		sans-serif;
 	--fs-h1: 2em;
 	--fs-default-large: 1.25em;
 	--fs-default: 1em;
 	--fs-small: 0.875em;
+	--fs-smallest: 0.75em;
 	--fv-mono: "MONO" 1;
 	--ls-enlarged: 0.025em;
 	--ls-reduced: -0.025em;
@@ -34,13 +38,7 @@ html {
 }
 
 body {
-	font:
-		1em "Recursive",
-		-apple-system,
-		BlinkMacSystemFont,
-		"Segoe UI",
-		Roboto,
-		sans-serif;
+	font: 1em var(--ff);
 	padding: var(--sp-default);
 	line-height: 1.45;
 	font-size: var(--fs-default);
@@ -187,6 +185,12 @@ pre {
 .astro-code {
 	border-radius: var(--br);
 	padding: var(--sp-half) var(--sp-default);
+}
+
+.astro-code code {
+	font-family: "Recursive";
+	font-variation-settings: var(--fv-mono);
+	font-size: var(--fs-small);
 }
 
 blockquote {
