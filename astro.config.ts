@@ -1,8 +1,8 @@
 import { defineConfig } from "astro/config";
 import { type RemarkPlugins } from "astro";
+import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import { remarkMark } from "remark-mark-highlight";
-
 import remarkWikiLink from "remark-wiki-link";
 import slugify from "slugify";
 import { loadEnv } from "vite";
@@ -21,7 +21,7 @@ export default defineConfig({
 	},
 	scopedStyleStrategy: "class",
 	site: SITE_URL,
-	integrations: [mdx()],
+	integrations: [mdx(), sitemap()],
 });
 
 function remarkPlugins(): RemarkPlugins {
