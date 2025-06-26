@@ -14,7 +14,7 @@ const latestThing = sortCollection([...allNotes, ...allPosts])[0];
 	<time datetime={dateToYMD(latestThing.data.pubDate)}>
 		{timeAgo(latestThing.data.pubDate)}
 	</time>
-	—
+	<span>–</span>
 	{
 		latestThing.collection === "posts" ? (
 			<a href={`/blog/${latestThing.slug}/`}>{latestThing.data.title}</a>
@@ -30,5 +30,10 @@ const latestThing = sortCollection([...allNotes, ...allPosts])[0];
 		padding: var(--sp-default);
 		background: var(--bg-darken);
 		border-radius: var(--br);
+	}
+	span,
+	time {
+		font-size: var(--fs-small);
+		color: var(--c-black-less-opaque);
 	}
 </style>
