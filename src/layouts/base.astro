@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { DEFAULT_LOCALE } from "@lib/date";
+import { locales, DEFAULT_LOCALE } from "@lib/date";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import "../global.css";
@@ -8,23 +8,49 @@ import "../global.css";
 // CollectionEntry has data (frontmatter) and content types for a collection
 type Props = CollectionEntry<"pages">["data"] & {
 	slug?: string;
+	description?: string;
 };
 
-const { template, slug, title, lang } = Astro.props;
+const { template, slug, title, lang, description } = Astro.props;
+const defaultDescription = {
+	[locales.NL]: "De persoonlijke website van Anne Fortuin",
+	[locales.EN]: "The personal website of Anne Fortuin",
+};
+
+const metaTitle = `${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・` : ""}Anne Fortuin`;
 ---
 
 <!doctype html>
 <html lang={lang || DEFAULT_LOCALE}>
 	<head>
-		<title>
-			{
-				`${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・` : ""}Anne Fortuin`
-			}
-		</title>
 		<meta charset="utf-8" />
-		<slot name="meta" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{metaTitle}</title>
+		<meta property="og:title" content={metaTitle} />
+		<meta
+			name="description"
+			content={description || defaultDescription[lang || DEFAULT_LOCALE]}
+		/>
+		<meta
+			property="og:description"
+			content={description || defaultDescription[lang || DEFAULT_LOCALE]}
+		/>
+		<meta
+			property="og:image"
+			content="https://www.annefortuin.nl/annefortuin-nl-og-image.png"
+		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta
+			property="og:type"
+			content={slug === "/" ? "website" : "article"}
+		/>
+		<meta property="og:site_name" content="annefortuin.nl" />
+		<meta property="og:locale" content={lang || DEFAULT_LOCALE} />
+		<meta name="author" content="Anne Fortuin" />
+		<meta property="og:url" content={new URL(Astro.url, Astro.site)} />
 		<link rel="canonical" href={new URL(Astro.url, Astro.site)} />
+		<slot name="meta" />
 		<link
 			rel="icon"
 			href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Ctext%20x='0'%20y='14'%3E🥒%3C/text%3E%3C/svg%3E"
