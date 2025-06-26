@@ -11,15 +11,15 @@ type Props = CollectionEntry<"pages">["data"] & {
 	description?: string;
 };
 
-export const author = "Anne Fortuin";
 const { template, slug, title, lang, description } = Astro.props;
-const defaultDescription = {
+export const author = "Anne Fortuin";
+export const defaultDescription = {
 	[locales.NL]: `De persoonlijke website van ${author}`,
 	[locales.EN]: `The personal website of ${author}`,
 };
-const siteName = "annefortuin.nl";
-const metaTitle = `${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・` : ""}${siteName}`;
+export const siteName = "annefortuin.nl";
 const url = new URL(Astro.url, Astro.site);
+const metaTitle = `${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・` : ""}${siteName}`;
 ---
 
 <!doctype html>
@@ -39,7 +39,7 @@ const url = new URL(Astro.url, Astro.site);
 		/>
 		<meta
 			property="og:image"
-			content={`${url}annefortuin-nl-og-image.png`}
+			content={new URL("annefortuin-nl-og-image.png", Astro.site)}
 		/>
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
@@ -57,7 +57,7 @@ const url = new URL(Astro.url, Astro.site);
 			rel="alternate"
 			type="application/rss+xml"
 			title={siteName}
-			href={`${url}rss/`}
+			href={new URL("rss", Astro.site)}
 		/>
 		<link
 			rel="icon"
