@@ -185,6 +185,7 @@ pre {
 .astro-code {
 	border-radius: var(--br);
 	padding: var(--sp-half) var(--sp-default);
+	font-feature-settings: "locl" 0; /* Turns off localised ligatures such as "ij" in NL */
 }
 
 .astro-code code {
