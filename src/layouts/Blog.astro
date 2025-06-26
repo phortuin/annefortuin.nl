@@ -4,7 +4,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import { formatDate, dateToYMD } from "@lib/date";
 
 // Components, layouts
-import Base from "@layouts/Base.astro";
+import Base, { author } from "@layouts/Base.astro";
 import NextPost from "@components/NextPost.astro";
 
 // CollectionEntry has data (frontmatter) and content types for a collection.
@@ -26,8 +26,7 @@ const { title, pubDate, slug, lang, description } = Astro.props;
 			<h1 itemprop="headline">{title}</h1>
 			<div class="byline vcard">
 				<address class="visually-hidden author">
-					By <a rel="author" class="url fn n" href="/">Anne Fortuin</a
-					>
+					By <a rel="author" class="url fn n" href="/">{author}</a>
 				</address>
 				<time itemprop="datePublished" datetime={dateToYMD(pubDate)}>
 					{formatDate(pubDate)}
