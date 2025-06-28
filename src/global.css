@@ -23,7 +23,7 @@
 	--c-white: #f7f7f0;
 	--c-black: CanvasText;
 	--c-black-less-opaque: rgba(0, 0, 0, 0.5);
-	--c-yellow: rgba(250, 224, 0, 0.5);
+	--c-yellow: rgba(240, 224, 0, 0.5);
 	--bg-darken: rgba(0, 0, 0, 0.05);
 }
 
@@ -139,6 +139,11 @@ a[href^="http"]:after {
 
 a[download]:after {
 	content: " ↓";
+}
+
+body:not(.home) a.internal {
+	/** Generated with remarkWikiLinks */
+	text-decoration-style: dotted;
 }
 
 strong {
