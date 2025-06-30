@@ -1,7 +1,7 @@
 ---
 // Libs, types
 import { getCollection } from "astro:content";
-import { dateToYMD, formatDate } from "@lib/date";
+import { dateToYMD, formatDateYMD } from "@lib/date";
 import { sortCollection } from "@lib/sort";
 
 const posts = await getCollection("posts");
@@ -15,7 +15,7 @@ const posts = await getCollection("posts");
 					<li>
 						<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
 						<time datetime={dateToYMD(post.data.pubDate)}>
-							{formatDate(post.data.pubDate)}
+							{formatDateYMD(post.data.pubDate)}
 						</time>
 					</li>
 				))

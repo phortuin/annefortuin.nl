@@ -1,7 +1,7 @@
 ---
 // Libs, types
 import { type CollectionEntry, getCollection } from "astro:content";
-import { formatDate, dateToYMD } from "@lib/date";
+import { formatDateYMD, dateToYMD } from "@lib/date";
 
 // Components, layouts
 import Base, { author } from "@layouts/Base.astro";
@@ -29,7 +29,7 @@ const { title, pubDate, slug, lang, description } = Astro.props;
 					By <a rel="author" class="url fn n" href="/">{author}</a>
 				</address>
 				<time itemprop="datePublished" datetime={dateToYMD(pubDate)}>
-					{formatDate(pubDate)}
+					{formatDateYMD(pubDate)}
 				</time>
 			</div>
 		</header>

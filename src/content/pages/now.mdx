@@ -1,30 +1,32 @@
 ---
 title: "Now"
-template: "other"
+lang: "en"
+lastModified: 2025-06-30
 ---
 
-This is my [now page](https://nownownow.com/about).
+import { formatDateYM } from "@lib/date";
+
+This is my [now page](https://nownownow.com/about). It’s in Dutch. You can [read it in English with Google Translate](https://www-annefortuin-nl.translate.goog/stuff-i-like/?_x_tr_sl=nl&_x_tr_tl=en&_x_tr_hl=en-UK).
+
+Last updated {formatDateYM(new Date(frontmatter.lastModified), frontmatter.lang)}
 
 ---
 
 ## Code
 
--   Rebuilt this website with Astro + CF Pages instead of hardcoded HTML + AWS S3
--   Charmed by [Love2d](https://love2d.org/) and Lua, but haven’t started anything yet
+- Deze site verbouwd van hard coded HTML + AWS S3 naar Astro en Cloudflare Pages
+- Werk draait om de complete rewrite van een Preact spaghetti-codebase en het opleveren van een white label e-commerce website in React
+- Wat veel leuker is, is kleine games schrijven met [LÖVE](https://love2d.org/) met en voor mijn kinderen: [Mobloom](https://github.com/phortuin/mobloom) en [Ships](https://github.com/phortuin/ships). Het volgende spel moet een eenhoorn featuren, die je op zijn billen kan slaan
 
-## Home
+## Thuis
 
--   Going on vacation soon, including a week solo camping with 3 kids
--   2 birthdays coming up
--   Yard work!
+- Ben een stoep aan het leggen in de tuin want daar moet een tuinkast op, dus het moet waterpas, waar vind ik de tijd
+- Ben eindelijk weer gaan boksen. Er is een piepkleine gym in mijn dorp waar 3 keer per week bokstraining wordt gegeven, ben helemaal over de maan
 
-## Workout
+## Games, TV, Muziek
 
--   Ran 10km last month, which was fun. Haven’t been able to work out nor run recently but will get back to it
--   Son is going to start Jiu Jitsu, which I am excited about for myself as well. Might try that out some time
-
-## Games, TV, Music
-
--   Started a second run of The Last of Us Part II on PS5, with lower difficulty setting. But the lower difficulty makes it less enjoyable, tbh
--   Recently saw Bombshell and BlackkKlansman; liked the former, the latter less
--   The Boys S4 was fun
+- Ben ergens afgelopen winter opnieuw The Last of Us Part II op PS5 gaan spelen, met lagere difficulty (ik heb mijn eerste run op Survivor gespeeld, dat moet ik nog op mijn CV zetten trouwens) maar dat maakt het dus minder leuk
+- Met dank aan [60 Songs That Explain the '90s: The 2000s](https://www.theringer.com/podcasts/60-songs-that-explain-the-90s-the-2000s/2025/05/28/no-one-knows-queens-of-the-stone-age) heb ik Queens of the Stone Age ontdekt, dat is niet vervelend
+- &hellip;en dankzij BKS 2025 heb ik Kneecap en Magdalena Bay ontdekt. Kae Tempest en The Streets waren ook highlights. En mijn eigen bed toen ik weer thuis kwam
+- Series: Severance was geweldig. Andor ook vrij goed.
+- Verder Wolfs (★★) en Mickey 17 (★★) gekeken. En RRR (★★★), dat was mijn eerste volledige Bollywood sit-through. Jezes wat een karwei was dat

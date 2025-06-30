@@ -9,11 +9,20 @@ export const DEFAULT_LOCALE = locales.NL;
  * Get ISO date without time (yyyy-mm-dd) for Date object
  * @returns {string} yyyy-mm-dd
  */
-export const dateToYMD = (date: Date): string =>
-	date.toISOString().slice(0, 10);
+export function dateToYMD(date: Date): string {
+	return date.toISOString().slice(0, 10);
+}
 
-export function formatDate(date: Date) {
-	const formatter = new Intl.DateTimeFormat(DEFAULT_LOCALE, {
+export function formatDateYM(date: Date, locale: Locale = DEFAULT_LOCALE) {
+	const formatter = new Intl.DateTimeFormat(locale, {
+		year: "numeric",
+		month: "long",
+	});
+	return formatter.format(date);
+}
+
+export function formatDateYMD(date: Date, locale: Locale = DEFAULT_LOCALE) {
+	const formatter = new Intl.DateTimeFormat(locale, {
 		year: "numeric",
 		month: "long",
 		day: "numeric",

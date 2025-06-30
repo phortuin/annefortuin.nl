@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { dateToYMD, formatDate } from "@lib/date";
+import { dateToYMD, formatDateYMD } from "@lib/date";
 import { sortCollection } from "@lib/sort";
 
 const allNotes = await getCollection("notes");
@@ -17,7 +17,7 @@ const allNotes = await getCollection("notes");
 						<h2 class="note-header" id={ymdDate}>
 							<time datetime={ymdDate}>
 								<a class="silent" href={`#${ymdDate}`}>
-									{formatDate(note.data.pubDate)}
+									{formatDateYMD(note.data.pubDate)}
 								</a>
 							</time>
 						</h2>
