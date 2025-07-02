@@ -23,9 +23,10 @@
 			<li>
 				<a
 					class="silent"
-					href="https://creativecommons.org/licenses/by/4.0/deed.en"
-					>CC BY</a
-				> Anne Fortuin
+					href="https://creativecommons.org/licenses/by-sa/4.0/"
+					>CC BY-SA</a
+				>
+				<a class="silent" href={Astro.site}>Anne Fortuin</a>
 			</li>
 			<li>
 				<a rel="me" href="https://mastodon.social/@phortuin">Mastodon</a
@@ -48,10 +49,7 @@
 		margin-block-start: var(--sp-large);
 		font-size: var(--fs-small);
 	}
-	a {
-		color: var(--c-black);
-	}
-	a::after {
+	a.silent::after {
 		content: "";
 	}
 	ul {
