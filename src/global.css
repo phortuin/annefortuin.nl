@@ -25,6 +25,9 @@
 	--c-black-less-opaque: rgba(0, 0, 0, 0.5);
 	--c-yellow: rgba(240, 224, 0, 0.5);
 	--bg-darken: rgba(0, 0, 0, 0.05);
+	--c-bg-yellow: #ffffe7;
+	--c-bg-blue: #f0f7ff;
+	--c-bg-green: #efe;
 }
 
 *,
@@ -141,6 +144,10 @@ a[download]:after {
 	content: " ↓";
 }
 
+body.home h2 {
+	text-transform: uppercase;
+}
+
 body:not(.home) a.internal {
 	/** Generated with remarkWikiLinks */
 	text-decoration-style: dotted;
@@ -211,4 +218,9 @@ mark {
 	border-radius: var(--br-small);
 	box-decoration-break: clone;
 	background-color: var(--c-yellow);
+}
+
+body.now,
+body.links {
+	background: var(--c-bg-yellow);
 }

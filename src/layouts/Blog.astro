@@ -33,7 +33,9 @@ const { title, pubDate, slug, lang, description } = Astro.props;
 				</time>
 			</div>
 		</header>
-		<slot />
+		<div class="markdown-content">
+			<slot />
+		</div>
 	</article>
 	<hr />
 	{slug && <NextPost slug={slug} />}
