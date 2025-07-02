@@ -163,6 +163,13 @@ em {
 		"CRSV" 1;
 }
 
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0;
+	margin-block-end: var(--sp-double);
+}
 .visually-hidden {
 	clip: rect(0 0 0 0);
 	position: absolute;
