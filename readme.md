@@ -28,3 +28,5 @@ $ npm run deploy
 ## Todo
 
 - [ ] Guestbook
+- [ ] Styling for blog overview 
+- [ ] Add blog content to RSS
