@@ -167,9 +167,20 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+
+figure {
 	margin: 0;
 	margin-block-end: var(--sp-double);
 }
+
+figcaption {
+	padding: var(--sp-small);
+	font-size: var(--fs-small);
+	color: var(--c-black-less-opaque);
+	text-align: right;
+}
+
 .visually-hidden {
 	clip: rect(0 0 0 0);
 	position: absolute;
