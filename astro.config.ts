@@ -1,12 +1,11 @@
+import { loadEnv } from "vite";
 import { defineConfig } from "astro/config";
-import { type RemarkPlugins } from "astro";
-import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import { rehypeFigure } from "./lib/rehype-figure";
 import { remarkMark } from "remark-mark-highlight";
 import remarkWikiLink from "remark-wiki-link";
 import slugify from "slugify";
-import { loadEnv } from "vite";
-import { rehypeFigure } from "./lib/rehype-figure";
 
 const { SITE_URL } = loadEnv(process.env.SITE_URL, process.cwd(), "");
 
@@ -14,28 +13,29 @@ export default defineConfig({
 	devToolbar: {
 		enabled: false,
 	},
+	integrations: [mdx(), sitemap()],
 	markdown: {
 		shikiConfig: {
 			theme: "rose-pine-moon",
 		},
 		rehypePlugins: [rehypeFigure],
-		remarkPlugins: remarkPlugins(),
+		remarkPlugins: [
+			remarkMark,
+			[
+				remarkWikiLink,
+				{
+					aliasDivider: "|",
+					hrefTemplate: (permalink: string) => `/${permalink}`,
+					pageResolver: (name: string) => {
+						if (/\d{4}-\d{2}-\d{2}.*/.test(name)) {
+							return [`notes/#${name}`];
+						}
+						return [slugify(name, { lower: true })];
+					},
+				},
+			],
+		],
 	},
 	scopedStyleStrategy: "class",
 	site: SITE_URL,
-	integrations: [mdx(), sitemap()],
 });
-
-function remarkPlugins(): RemarkPlugins {
-	const options = {
-		aliasDivider: "|",
-		hrefTemplate: (permalink: string) => `/${permalink}`,
-		pageResolver: (name: string) => {
-			if (/\d{4}-\d{2}-\d{2}.*/.test(name)) {
-				return [`notes/#${name}`];
-			}
-			return [slugify(name, { lower: true })];
-		},
-	};
-	return [remarkMark, [remarkWikiLink, options]];
-}
