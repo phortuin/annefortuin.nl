@@ -6,6 +6,7 @@ import { remarkMark } from "remark-mark-highlight";
 import remarkWikiLink from "remark-wiki-link";
 import slugify from "slugify";
 import { loadEnv } from "vite";
+import { rehypeFigure } from "./lib/rehype-figure";
 
 const { SITE_URL } = loadEnv(process.env.SITE_URL, process.cwd(), "");
 
@@ -17,6 +18,7 @@ export default defineConfig({
 		shikiConfig: {
 			theme: "rose-pine-moon",
 		},
+		rehypePlugins: [rehypeFigure],
 		remarkPlugins: remarkPlugins(),
 	},
 	scopedStyleStrategy: "class",
