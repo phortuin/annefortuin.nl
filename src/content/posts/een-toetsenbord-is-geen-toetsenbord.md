@@ -7,5 +7,5 @@ Een toetsenbord is een toetsenbord is een toetsenbord. Of niet? Jeff Atwood, een
 
 **Update**: ik heb inmiddels ook een zelfde toetsenbord met Cherry MX Blue switches. Dat tiept zwaarder en het geluid draagt onder ideale weersomstandigheden tot aan de Poolse grens. Mijn vriendin heeft de Browns mee naar haar werk en bericht zojuist “Ik hou het toetsenbord” — ze bedoelt natuurlijk “Ik hou van”, maar het is altijd even wennen, een nieuw toetsenbord.
 
-[1]: http://codekeyboards.com/
+[1]: https://blog.codinghorror.com/the-code-keyboard/
 [2]: https://www.youtube.com/watch?v=hUN93Xz-7pg&t=102
