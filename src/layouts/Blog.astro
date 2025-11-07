@@ -29,7 +29,7 @@ const { title, pubDate, slug, lang, description } = Astro.props;
 					By <a rel="author" class="url fn n" href="/">{author}</a>
 				</address>
 				<time itemprop="datePublished" datetime={dateToYMD(pubDate)}>
-					{formatDateYMD(pubDate)}
+					{formatDateYMD(pubDate, lang)}
 				</time>
 			</div>
 		</header>
@@ -38,7 +38,7 @@ const { title, pubDate, slug, lang, description } = Astro.props;
 		</div>
 	</article>
 	<hr />
-	{slug && <NextPost slug={slug} />}
+	{slug && <NextPost lang={lang} slug={slug} />}
 </Base>
 
 <style>

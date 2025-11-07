@@ -2,6 +2,7 @@
 // Libs, types
 import { getCollection } from "astro:content";
 import { sortCollection } from "@lib/sort";
+import { type Locale, locales, DEFAULT_LOCALE } from "@lib/date";
 
 // Find current post (by slug) in sorted collection and return the next
 // post. Wraps around to the oldest post
@@ -17,14 +18,19 @@ async function getNextPost(slug: string) {
 
 type Props = {
 	slug: string;
+	lang: Locale;
 };
 
-const { slug } = Astro.props;
+const { slug, lang } = Astro.props;
+
+const nextUpText = { [locales.NL]: "Lees ook ", [locales.EN]: "Next up: " }[
+	lang || DEFAULT_LOCALE
+];
 
 const nextPost = await getNextPost(slug.replace("blog/", ""));
 ---
 
 <nav>
-	Lees ook <a href={`/blog/${nextPost.slug}/`}>{nextPost.data.title} &rarr;</a
-	>
+	{nextUpText}
+	<a href={`/blog/${nextPost.slug}/`}>{nextPost.data.title} &rarr;</a>
 </nav>
