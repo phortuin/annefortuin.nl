@@ -1,8 +1,5 @@
-import { type CollectionEntry } from "astro:content";
+import { type CollectionEntry, type CollectionKey } from "astro:content";
 
-type SomeCollection = CollectionEntry<"posts"> | CollectionEntry<"notes">;
-
-export const sortCollection = (collection:SomeCollection[]) =>
-	collection.sort((a:SomeCollection, b:SomeCollection) =>
-		a.data.pubDate > b.data.pubDate ? -1 : 1
-	);
+export const sortCollection = <T extends CollectionKey>(
+	collection: CollectionEntry<T>[],
+) => collection.sort((a, b) => a.data.pubDate > b.data.pubDate ? -1 : 1);

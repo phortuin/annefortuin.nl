@@ -5,13 +5,14 @@ import { dateToYMD, formatDateYMD } from "@lib/date";
 import { sortCollection } from "@lib/sort";
 
 const posts = await getCollection("posts");
+const sortedPosts = sortCollection<"posts">(posts);
 ---
 
 <nav>
 	<ul>
 		{
 			posts &&
-				sortCollection(posts).map((post) => (
+				sortedPosts.map((post) => (
 					<li>
 						<a href={`/blog/${post.slug}/`}>{post.data.title}</a>
 						<time datetime={dateToYMD(post.data.pubDate)}>
