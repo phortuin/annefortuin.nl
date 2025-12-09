@@ -56,7 +56,12 @@
 		display: flex;
 		margin: 0;
 		padding: 0;
-		gap: var(--sp-half);
+	}
+	li {
+		margin-inline-end: var(--sp-half);
+	}
+	li:last-child {
+		margin-inline-end: 0;
 	}
 	li::before {
 		content: "";
