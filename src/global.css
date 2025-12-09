@@ -137,7 +137,7 @@ a {
 }
 
 a[href^="http"]:after {
-	content: " ↗";
+	content: " ↗";
 }
 
 a[download]:after {

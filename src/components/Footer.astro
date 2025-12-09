@@ -20,7 +20,7 @@
 	</nav>
 	<nav class="social">
 		<ul>
-			<li>
+			<li class="cc">
 				<a
 					class="silent"
 					href="https://creativecommons.org/licenses/by-sa/4.0/"
@@ -54,6 +54,7 @@
 	}
 	ul {
 		display: flex;
+		flex-wrap: wrap;
 		margin: 0;
 		padding: 0;
 	}
@@ -65,5 +66,17 @@
 	}
 	li::before {
 		content: "";
+	}
+	.cc {
+		margin-block-start: var(--sp-default);
+		grow: 1;
+		width: 100%;
+	}
+	@media screen and (min-width: 40rem) {
+		.cc {
+			margin-block-start: 0;
+			grow: 0;
+			width: auto;
+		}
 	}
 </style>
