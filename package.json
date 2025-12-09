@@ -16,12 +16,12 @@
     "deploy": "npm run build && wrangler pages deploy dist"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^4.3.0",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/mdx": "^4.3.12",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
     "@types/hast": "^3.0.4",
     "@types/node": "^24.0.4",
-    "astro": "^5.10.1",
+    "astro": "^5.16.4",
     "hast-util-whitespace": "^3.0.0",
     "hastscript": "^9.0.1",
     "markdown-description": "^1.1.0",
