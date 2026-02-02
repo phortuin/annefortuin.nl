@@ -1,16 +1,7 @@
-import { z, defineCollection } from "astro:content";
-import { type Locale } from "@lib/date";
+import { defineCollection, z } from "astro:content";
+import { type Locale } from "@lib/date.ts";
 
 const locales = z.custom<Locale>();
-
-const postsCollection = defineCollection({
-	type: "content",
-	schema: z.object({
-		title: z.string(),
-		lang: z.optional(locales),
-		pubDate: z.coerce.date(),
-	}),
-});
 
 const notesCollection = defineCollection({
 	type: "content",
@@ -26,12 +17,10 @@ const pagesCollection = defineCollection({
 		title: z.string().optional(),
 		lang: z.optional(locales),
 		description: z.string().optional(),
-		template: z.string().optional(),
 	}),
 });
 
 export const collections = {
-	posts: postsCollection,
 	notes: notesCollection,
 	pages: pagesCollection,
 };

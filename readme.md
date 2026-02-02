@@ -27,6 +27,7 @@ $ npm run deploy
 
 ## Todo
 
+- [ ] Build on push to main or tag
+- [ ] Add protective headers
+- [ ] tsconfigPaths() with `~` as alias for src
 - [ ] Guestbook
-- [ ] Styling for blog overview 
-- [ ] Add blog content to RSS

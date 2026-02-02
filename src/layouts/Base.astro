@@ -11,7 +11,8 @@ type Props = CollectionEntry<"pages">["data"] & {
 	description?: string;
 };
 
-const { template, slug, title, lang, description } = Astro.props;
+const { slug, lang, title, description } = Astro.props;
+
 export const author = "Anne Fortuin";
 export const defaultDescription = {
 	[locales.NL]: `De persoonlijke website van ${author}`,
@@ -72,7 +73,7 @@ const metaTitle = `${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・`
 			rel="stylesheet"
 		/>
 	</head>
-	<body class={template}>
+	<body>
 		<Header slug={slug} />
 		<main id="main-content">
 			{title && <h1>{title}</h1>}

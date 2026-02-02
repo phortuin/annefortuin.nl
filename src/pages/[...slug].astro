@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import markdownDescription from "markdown-description";
 import Base from "@layouts/Base.astro";
 
 /**
@@ -27,9 +28,9 @@ const { Content } = await page.render();
 
 <Base
 	slug={page.slug}
-	template={page.data.template}
 	title={page.data.title}
 	lang={page.data.lang}
+	description={page.data.description || markdownDescription(page.body)}
 >
 	<Content />
 </Base>

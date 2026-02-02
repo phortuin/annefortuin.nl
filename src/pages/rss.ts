@@ -1,21 +1,21 @@
 import { type APIRoute } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { defaultDescription, siteName } from "@layouts/Base.astro";
+import { defaultDescription, siteName } from "./[...slug].astro";
 import { locales } from "@lib/date";
 
 export const GET: APIRoute = async (context) => {
-	const posts = await getCollection("posts");
+	const notes = await getCollection("notes");
 	// https://docs.astro.build/en/recipes/rss/#including-full-post-content
 	return rss({
 		title: siteName,
-		description: defaultDescription[locales.EN],
+		description: defaultDescription[locales.NL],
 		site: context.site!,
-		items: posts.map((post) => ({
-			title: post.data.title,
-			pubDate: post.data.pubDate,
-			link: `/blog/${post.slug}/`,
+		items: notes.map((note) => ({
+			title: note.data.title,
+			pubDate: note.data.pubDate,
+			link: `/${note.slug}/`,
 		})),
-		customData: `<language>${locales.EN}</language>`,
+		customData: `<language>${locales.NL}</language>`,
 	});
 };

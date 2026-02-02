@@ -1,15 +1,11 @@
 ---
 title: "Now"
-lang: "en"
-template: "now"
-lastModified: 2025-06-30
+lang: "nl"
 ---
-
-import { formatDateYM } from "@lib/date";
 
 This is my [now page](https://nownownow.com/about). It’s in Dutch. You can [read it in English with Google Translate](https://www-annefortuin-nl.translate.goog/now/?_x_tr_sl=nl&_x_tr_tl=en&_x_tr_hl=en-UK).
 
-Last updated {formatDateYM(new Date(frontmatter.lastModified), frontmatter.lang)}
+Last updated June 30, 2025
 
 ---
 

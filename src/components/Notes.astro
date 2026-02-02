@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import { dateToYMD, formatDateYMD } from "@lib/date";
-import { sortCollection } from "@lib/sort";
 
 const allNotes = await getCollection("notes");
 ---
@@ -9,25 +8,27 @@ const allNotes = await getCollection("notes");
 <ul>
 	{
 		allNotes &&
-			sortCollection(allNotes).map(async (note) => {
-				const { Content } = await note.render();
-				const ymdDate = dateToYMD(note.data.pubDate);
-				return (
-					<li class="note">
-						<h2 class="note-header" id={ymdDate}>
-							<time datetime={ymdDate}>
-								<a class="silent" href={`#${ymdDate}`}>
-									{formatDateYMD(note.data.pubDate)}
-								</a>
-							</time>
-						</h2>
-						<hr class="note-hr" />
-						<div class="markdown-content">
-							<Content />
-						</div>
-					</li>
-				);
-			})
+			allNotes
+				.sort((a, b) => (a.data.pubDate > b.data.pubDate ? -1 : 1))
+				.map(async (note) => {
+					const { Content } = await note.render();
+					const ymdDate = dateToYMD(note.data.pubDate);
+					return (
+						<li class="note">
+							<h2 class="note-header" id={ymdDate}>
+								<time datetime={ymdDate}>
+									<a class="silent" href={`#${ymdDate}`}>
+										{formatDateYMD(note.data.pubDate)}
+									</a>
+								</time>
+							</h2>
+							<hr class="note-hr" />
+							<div class="markdown-content">
+								<Content />
+							</div>
+						</li>
+					);
+				})
 	}
 </ul>
 

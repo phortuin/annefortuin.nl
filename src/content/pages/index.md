@@ -1,15 +1,5 @@
 ---
 slug: "/"
-template: "home"
----
-
-import Posts from "@components/Posts.astro";
-import Header from "@components/Header.astro";
-import LinkToLatestThing from "@components/LinkToLatestThing.astro";
-import Footer from "@components/Footer.astro";
-
-<LinkToLatestThing />
-
 ---
 
 # Bouwer van websites / vader van bokoblins / incl. hond
@@ -24,9 +14,3 @@ Ik doe iets met computers. Mijn dreams en goals zijn op een zonnige dag in de tu
 - [[Links]] houden het web overeind
 - Als je kan schaken, [let’s go](https://lichess.org/?user=phortuin#friend)
 - &hellip;en ik heb een [[Now]] page, gewoon in je moerstaal!
-
----
-
-## Blog
-
-<Posts />

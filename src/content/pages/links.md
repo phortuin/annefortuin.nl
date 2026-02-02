@@ -1,6 +1,6 @@
 ---
 title: "Links"
-template: "links"
+language: "en"
 ---
 
 Hyperlinks make the web go round. I like these websites in particular, either because of their content, their make up, or both.

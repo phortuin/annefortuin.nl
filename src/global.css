@@ -148,11 +148,6 @@ body.home h2 {
 	text-transform: uppercase;
 }
 
-body:not(.home) a.internal {
-	/** Generated with remarkWikiLinks */
-	text-decoration-style: dotted;
-}
-
 strong {
 	font-variation-settings: "wght" 700;
 }
@@ -236,9 +231,4 @@ mark {
 	border-radius: var(--br-small);
 	box-decoration-break: clone;
 	background-color: var(--c-yellow);
-}
-
-body.now,
-body.links {
-	background: var(--c-bg-yellow);
 }
