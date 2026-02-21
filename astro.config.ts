@@ -3,7 +3,7 @@ import { loadEnv } from "vite";
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { rehypeFigure } from "./lib/rehype-figure.ts";
+import { rehypeFigure } from "./src/lib/rehype-figure.ts";
 import { remarkMark } from "remark-mark-highlight";
 import remarkWikiLink from "remark-wiki-link";
 import slugify from "@sindresorhus/slugify";

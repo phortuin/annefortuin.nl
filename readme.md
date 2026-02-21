@@ -29,7 +29,6 @@ $ npm run deploy
 
 - [ ] Build on push to main or tag
 - [ ] Add protective headers
-- [ ] tsconfigPaths() with `~` as alias for src
 - [ ] Guestbook
 - [ ] Deno!
 - [ ] Wikilinks should match any page, eg. if `/some-path/derp.md` is the only page called 'derp' it should link by using `[[derp]]`

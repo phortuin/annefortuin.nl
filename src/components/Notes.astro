@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { dateToYMD, formatDateYMD } from "@lib/date";
+import { dateToYMD, formatDateYMD } from "~/lib/date.ts";
 
 const allNotes = await getCollection("notes");
 ---

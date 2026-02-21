@@ -1,8 +1,8 @@
 import { type APIRoute } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { defaultDescription, siteName } from "./[...slug].astro";
-import { locales } from "@lib/date";
+import { defaultDescription, siteName } from "~/layouts/Base.astro";
+import { locales } from "~/lib/date.ts";
 
 export const GET: APIRoute = async (context) => {
 	const notes = await getCollection("notes");

@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { type Locale } from "@lib/date.ts";
+import { type Locale } from "~/lib/date.ts";
 
 const locales = z.custom<Locale>();
 
