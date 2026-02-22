@@ -30,5 +30,6 @@ $ npm run deploy
 - [ ] Build on push to main or tag
 - [ ] Add protective headers
 - [ ] Guestbook
-- [ ] Deno!
 - [ ] Wikilinks should match any page, eg. if `/some-path/derp.md` is the only page called 'derp' it should link by using `[[derp]]`
+- [ ] Add precommit hook w/lefthook with lint/fmt/check tasks
+- [ ] Set up CI w/deno on cloudflare?

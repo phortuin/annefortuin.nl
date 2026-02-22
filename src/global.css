@@ -45,15 +45,8 @@ body {
 	padding: var(--sp-default);
 	line-height: 1.45;
 	font-size: var(--fs-default);
-	font-variation-settings:
-		"wght" 400,
-		"slnt" 0;
-	font-feature-settings:
-		"kern" 1,
-		"liga" 1,
-		"dlig" 1,
-		"ss01" 0,
-		"ss02" 1;
+	font-variation-settings: "wght" 400, "slnt" 0;
+	font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "ss01" 0, "ss02" 1;
 	color: var(--c-black);
 	letter-spacing: var(--ls-reduced);
 	background: var(--c-white);
@@ -79,10 +72,7 @@ footer {
 
 h1 {
 	font-size: var(--fs-h1);
-	font-variation-settings:
-		"wght" 900,
-		"slnt" -5,
-		"CRSV" 1;
+	font-variation-settings: "wght" 900, "slnt" -5, "CRSV" 1;
 	margin-block-end: var(--sp-default);
 	line-height: 1.1;
 	margin-inline-start: var(--sp-h1-correction);
@@ -153,9 +143,7 @@ strong {
 }
 
 em {
-	font-variation-settings:
-		"slnt" -8,
-		"CRSV" 1;
+	font-variation-settings: "slnt" -8, "CRSV" 1;
 }
 
 img {
@@ -210,7 +198,8 @@ pre {
 .astro-code {
 	border-radius: var(--br);
 	padding: var(--sp-half) var(--sp-default);
-	font-feature-settings: "locl" 0; /* Turns off localised ligatures such as "ij" in NL */
+	font-feature-settings: "locl"
+		0; /* Turns off localised ligatures such as "ij" in NL */
 }
 
 .astro-code code {

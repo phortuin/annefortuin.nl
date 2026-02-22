@@ -1,5 +1,5 @@
 import { visit } from "unist-util-visit";
-import type { Text, Element, Node, Parent } from "hast";
+import type { Element, Node, Parent, Text } from "hast";
 import { whitespace } from "hast-util-whitespace";
 import { remove } from "unist-util-remove";
 import { h } from "hastscript";
@@ -58,8 +58,9 @@ export function rehypeFigure() {
 			tree,
 			{ tagName: "p" },
 			(node: Node | Parent, index: number, parent: Parent) => {
-				if (isParentNode(node) && !hasOnlyImagesOrWhitespace(node))
+				if (isParentNode(node) && !hasOnlyImagesOrWhitespace(node)) {
 					return;
+				}
 				remove(node, "text"); // This removes any whitespace such as tabs or newlines
 				if (parent && parent.children && "children" in node) {
 					parent.children.splice(index, 1, ...node.children); // Replace current child with its children, effectively unwrapping the <img/> elements inside the <p/>
@@ -99,7 +100,7 @@ function createFigure(element: Element): Element {
 	delete element.properties.title;
 	const newElement = h("figure", { role: "group" }, [
 		h("img", { ...element.properties }),
-		Boolean(title) ? h("figcaption", { type: "text", value: title }) : null,
+		title ? h("figcaption", { type: "text", value: title }) : null,
 	]);
 	return {
 		type: "element",
