@@ -2,13 +2,13 @@
 
 > Some dude’s website
 
-Built with [Astro](https://astro.build/).
+Built with [Astro](https://astro.build/). Uses [Deno](https://deno.com/) for dependency management and running tasks.
 
 ## Development
 
 ```bash
-$ npm ci
-$ npm run dev
+$ deno install
+$ deno task dev
 ```
 
 ## Deploy
@@ -16,7 +16,7 @@ $ npm run dev
 Uses Wrangler to deploy to [Cloudflare Pages](https://pages.cloudflare.com/).
 
 ```bash
-$ npm run deploy
+$ deno task deploy
 ```
 
 ## Tech
