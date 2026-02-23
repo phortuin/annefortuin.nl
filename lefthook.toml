@@ -1,0 +1,11 @@
+[pre-commit]
+parallel = true
+
+[pre-commit.commands.lint]
+run = "deno lint"
+
+[pre-commit.commands.fmt]
+run = "deno fmt"
+
+[pre-commit.commands.typecheck]
+run = "deno task check"

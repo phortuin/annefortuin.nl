@@ -27,6 +27,7 @@
     "astro": "^5.16.4",
     "hast-util-whitespace": "^3.0.0",
     "hastscript": "^9.0.1",
+    "lefthook": "^2.1.1",
     "markdown-description": "^1.1.0",
     "remark-mark-highlight": "^0.1.1",
     "remark-wiki-link": "^2.0.1",

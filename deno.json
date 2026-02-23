@@ -1,19 +1,20 @@
 {
-  "imports": {
-    "~/": "./src/"
-  },
-  "tasks": {
-    "dev": "deno run --allow-all npm:astro dev",
-    "build": "deno run --allow-all npm:astro build",
-    "check": "deno run --allow-all npm:astro check",
-    "format": "deno fmt",
-    "preview": "dx wrangler pages dev",
-    "deploy": "deno task build && dx wrangler pages deploy"
-  },
+  "allowScripts": ["npm:lefthook@2.1.0"],
   "fmt": {
     "useTabs": true,
     "indentWidth": 4,
     "proseWrap": "preserve",
     "exclude": ["**/*.json"]
+  },
+  "imports": {
+    "~/": "./src/"
+  },
+  "tasks": {
+    "configure": "dx npm:lefthook install",
+    "dev": "deno run --allow-all npm:astro dev",
+    "build": "deno run --allow-all npm:astro build",
+    "check": "deno run --allow-all npm:astro check",
+    "preview": "dx wrangler pages dev",
+    "deploy": "deno task build && dx wrangler pages deploy"
   }
 }
