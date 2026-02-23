@@ -8,7 +8,7 @@ import { remarkMark } from "remark-mark-highlight";
 import remarkWikiLink from "remark-wiki-link";
 import slugify from "@sindresorhus/slugify";
 
-const { SITE_URL } = loadEnv(process.env.SITE_URL, process.cwd(), "");
+const { SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 export default defineConfig({
 	devToolbar: {
