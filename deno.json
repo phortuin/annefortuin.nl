@@ -7,8 +7,8 @@
     "build": "deno run --allow-all npm:astro build",
     "check": "deno run --allow-all npm:astro check",
     "format": "deno fmt",
-    "preview": "deno run --allow-all npm:wrangler pages dev ./dist",
-    "deploy": "deno task build && deno run --allow-all npm:wrangler pages deploy ./dist -- --browser=false"
+    "preview": "dx wrangler pages dev",
+    "deploy": "deno task build && dx wrangler pages deploy"
   },
   "fmt": {
     "useTabs": true,
