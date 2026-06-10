@@ -1,4 +1,4 @@
-import { locales } from "~/lib/date.ts";
+import { locales } from "~/lib/locale.ts";
 
 export const author = "Anne Fortuin";
 export const siteName = "annefortuin.nl";

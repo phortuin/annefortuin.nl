@@ -1,9 +1,4 @@
-export const locales = {
-	NL: "nl",
-	EN: "en",
-} as const;
-export type Locale = (typeof locales)[keyof typeof locales];
-export const DEFAULT_LOCALE = locales.NL;
+import { DEFAULT_LOCALE, type Locale } from "~/lib/locale.ts";
 
 /**
  * Get ISO date without time (yyyy-mm-dd) for Date object

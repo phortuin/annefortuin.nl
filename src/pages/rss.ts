@@ -1,6 +1,6 @@
 import { type APIRoute } from "astro";
 import rss from "@astrojs/rss";
-import { locales } from "~/lib/date.ts";
+import { locales } from "~/lib/locale.ts";
 import { getNotes } from "~/lib/note.ts";
 import { defaultDescription, siteName } from "~/lib/site.ts";
 
