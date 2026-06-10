@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { locales, DEFAULT_LOCALE } from "~/lib/date.ts";
+import { DEFAULT_LOCALE } from "~/lib/date.ts";
+import { author, defaultDescription, siteName } from "~/lib/site.ts";
 import Header from "~/components/Header.astro";
 import Footer from "~/components/Footer.astro";
 import "../global.css";
@@ -12,13 +13,6 @@ type Props = CollectionEntry<"pages">["data"] & {
 };
 
 const { slug, lang, title, description } = Astro.props;
-
-export const author = "Anne Fortuin";
-export const defaultDescription = {
-	[locales.NL]: `De persoonlijke website van ${author}`,
-	[locales.EN]: `The personal website of ${author}`,
-};
-export const siteName = "annefortuin.nl";
 const url = new URL(Astro.url, Astro.site);
 const metaTitle = `${import.meta.env.DEV ? "DEV・" : ""}${title ? `${title}・` : ""}${siteName}`;
 ---
