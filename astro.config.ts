@@ -4,9 +4,9 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { rehypeFigure } from "./src/lib/rehype-figure.ts";
+import { resolveWikilink } from "./src/lib/wikilink.ts";
 import { remarkMark } from "remark-mark-highlight";
 import remarkWikiLink from "remark-wiki-link";
-import slugify from "@sindresorhus/slugify";
 
 const { SITE_URL } = loadEnv(
 	process.env.NODE_ENV || "",
@@ -31,13 +31,7 @@ export default defineConfig({
 				{
 					aliasDivider: "|",
 					hrefTemplate: (permalink: string) => `/${permalink}`,
-					pageResolver: (name: string) => {
-						if (/\d{4}-\d{2}-\d{2}.*/.test(name)) {
-							return [`notes/#${name}`];
-						}
-						if (name.indexOf("/") > -1) return [name];
-						return [slugify(name, { lowercase: true })];
-					},
+					pageResolver: resolveWikilink,
 				},
 			],
 		],
