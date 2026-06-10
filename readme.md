@@ -49,5 +49,7 @@ This token will automatically be picked up by Wrangler’s deploy command.
 ## Todo
 
 - [ ] Add protective headers
+- [ ] Do the full [Website Spec checklist](https://specification.website/checklist/)
 - [ ] Guestbook
 - [ ] Wikilinks should match any page, eg. if `/some-path/derp.md` is the only page called 'derp' it should link by using `[[derp]]`
+- [ ] Add [full content](https://docs.astro.build/en/recipes/rss/#including-full-post-content) to RSS
