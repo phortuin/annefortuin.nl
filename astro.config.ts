@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { rehypeFigure } from "./src/lib/rehype-figure.ts";
-import { resolveWikilink } from "./src/lib/wikilink.ts";
+import { createWikilinkResolver, loadPageSlugs } from "./src/lib/wikilink.ts";
 import { remarkMark } from "remark-mark-highlight";
 import remarkWikiLink from "remark-wiki-link";
 
@@ -13,6 +13,8 @@ const { SITE_URL } = loadEnv(
 	process.cwd(),
 	"",
 );
+
+const knownPageSlugs = loadPageSlugs();
 
 export default defineConfig({
 	devToolbar: {
@@ -31,7 +33,8 @@ export default defineConfig({
 				{
 					aliasDivider: "|",
 					hrefTemplate: (permalink: string) => `/${permalink}`,
-					pageResolver: resolveWikilink,
+					permalinks: knownPageSlugs,
+					pageResolver: createWikilinkResolver(knownPageSlugs),
 				},
 			],
 		],
