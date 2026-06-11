@@ -1,5 +1,6 @@
 {
   "allowScripts": ["npm:lefthook@2.1.0"],
+  "exclude": ["src/deno.d.ts"],
   "fmt": {
     "useTabs": true,
     "indentWidth": 4,
@@ -14,6 +15,7 @@
     "dev": "deno run --allow-all npm:astro dev",
     "build": "deno run --allow-all npm:astro build",
     "check": "deno run --allow-all npm:astro check",
+    "test": "deno test --allow-read",
     "preview": "dx wrangler pages dev",
     "deploy": "deno task build && dx wrangler pages deploy"
   }

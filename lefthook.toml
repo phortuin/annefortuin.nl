@@ -9,3 +9,6 @@ run = "deno fmt"
 
 [pre-commit.commands.typecheck]
 run = "deno task check"
+
+[pre-commit.commands.test]
+run = "deno task test"
