@@ -1,4 +1,4 @@
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { dateToYMD } from "~/lib/date.ts";
 
 export async function getNotes() {
@@ -7,7 +7,7 @@ export async function getNotes() {
 		entries
 			.sort((a, b) => (a.data.pubDate > b.data.pubDate ? -1 : 1))
 			.map(async (entry) => {
-				const { Content } = await entry.render();
+				const { Content } = await render(entry);
 				return {
 					title: entry.data.title,
 					pubDate: entry.data.pubDate,

@@ -1,7 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import markdownDescription from "markdown-description";
 import Base from "~/layouts/Base.astro";
+import { pathToSlug } from "~/lib/wikilink.ts";
 
 /**
  * To render the index page from the pages collection as the root of the site
@@ -17,20 +18,21 @@ import Base from "~/layouts/Base.astro";
 export async function getStaticPaths() {
 	const pages = await getCollection("pages");
 	return pages.map((page) => ({
-		params: { slug: page.slug || undefined },
+		params: { slug: pathToSlug(page.id) || undefined },
 		props: { page },
 	}));
 }
 
 const { page } = Astro.props;
-const { Content } = await page.render();
+const { Content } = await render(page);
+const slug = pathToSlug(page.id);
 ---
 
 <Base
-	slug={page.slug}
+	slug={slug}
 	title={page.data.title}
 	lang={page.data.lang}
-	description={page.data.description || markdownDescription(page.body)}
+	description={page.data.description || markdownDescription(page.body ?? "")}
 >
 	<Content />
 </Base>

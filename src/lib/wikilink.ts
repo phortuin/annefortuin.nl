@@ -3,10 +3,10 @@ import path from "node:path";
 import slugify from "@sindresorhus/slugify";
 
 const pagesDir = path.join(import.meta.dirname!, "../content/pages");
-const markdownRegex = /\.mdx?$/;
+export const mdExtensionRegex = /\.mdx?$/;
 
-function fileToSlug(file: string) {
-	const { dir, name } = path.parse(file);
+export function pathToSlug(filePath: string) {
+	const { dir, name } = path.parse(filePath);
 	if (name === "index") return dir;
 	return dir ? `${dir}/${name}` : name;
 }
@@ -18,8 +18,8 @@ function slugKey(name: string) {
 export function loadPageSlugs(): string[] {
 	const files = readdirSync(pagesDir, { recursive: true, encoding: "utf8" });
 	return files
-		.filter((file) => markdownRegex.test(file))
-		.map(fileToSlug)
+		.filter((file) => mdExtensionRegex.test(file))
+		.map(pathToSlug)
 		.filter((slug) => slug !== "");
 }
 

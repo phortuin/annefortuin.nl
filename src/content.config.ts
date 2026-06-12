@@ -1,10 +1,13 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 import { type Locale } from "~/lib/locale.ts";
+import { mdExtensionRegex } from "~/lib/wikilink.ts";
 
 const locales = z.custom<Locale>();
 
 const notesCollection = defineCollection({
-	type: "content",
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/notes" }),
 	schema: z.object({
 		title: z.string(),
 		pubDate: z.coerce.date(),
@@ -12,7 +15,11 @@ const notesCollection = defineCollection({
 });
 
 const pagesCollection = defineCollection({
-	type: "content",
+	loader: glob({
+		pattern: "**/*.{md,mdx}",
+		base: "./src/content/pages",
+		generateId: ({ entry }) => entry.replace(mdExtensionRegex, ""),
+	}),
 	schema: z.object({
 		title: z.string().optional(),
 		lang: z.optional(locales),

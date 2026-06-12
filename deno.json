@@ -1,6 +1,7 @@
 {
   "allowScripts": ["npm:lefthook@2.1.0"],
   "exclude": ["src/deno.d.ts"],
+  "unstable": ["bare-node-builtins"],
   "fmt": {
     "useTabs": true,
     "indentWidth": 4,
