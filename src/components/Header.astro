@@ -1,15 +1,42 @@
 ---
+import { getCollection } from "astro:content";
+import { buildBreadcrumbs } from "~/lib/breadcrumbs.ts";
+import { pathToSlug } from "~/lib/wikilink.ts";
+
 type Props = {
 	slug?: string;
 };
 
 const { slug } = Astro.props;
+const pages = await getCollection("pages");
+const knownSlugs = new Set(pages.map((page) => pathToSlug(page.id)));
+const crumbs = buildBreadcrumbs(slug, knownSlugs);
 ---
 
 <header class="site-header">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<nav>
-		<a href="/" rel="me">&gt; annefortuin.nl{slug !== "/" && `/${slug}`}</a>
+		<span class="prompt">&gt;</span>
+		<ul>
+			{
+				crumbs.map((crumb, index) => (
+					<>
+						{crumb.href ? (
+							<li>
+								<a
+									href={crumb.href}
+									rel={index === 0 ? "me" : undefined}
+								>
+									{crumb.label}
+								</a>
+							</li>
+						) : (
+							<li>{crumb.label}</li>
+						)}
+					</>
+				))
+			}
+		</ul>
 	</nav>
 </header>
 
@@ -26,11 +53,32 @@ const { slug } = Astro.props;
 		left: var(--sp-default);
 		padding: var(--sp-half);
 	}
-	nav a {
+	nav {
+		display: flex;
+		gap: var(--sp-small);
+	}
+	nav ul {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	nav li::before {
+		display: none;
+	}
+	nav li {
+		margin: 0;
+	}
+	nav li:not(:last-child)::after {
+		content: "/";
+	}
+	nav a,
+	nav span {
 		color: var(--c-black);
 		text-decoration: none;
 	}
-	nav a::after {
+	li:last-child::after {
 		content: "_";
 		animation: pulse 1s steps(2, start) infinite;
 	}
